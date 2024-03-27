@@ -18,22 +18,22 @@
         </Grid.RowDefinitions>
 
         <!--Весь экран-->
-        <Frame Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <Frame x:Name="AllWindowFrame" Grid.RowSpan="2" Grid.ColumnSpan="2">
             
         </Frame>
 
         <!--Общее меню слева-->
-        <Frame Grid.RowSpan="2" Background="#FFB6C2FF">
+        <Frame x:Name="LeftMenuFrame" Grid.RowSpan="2" Background="#FFB6C2FF">
             
         </Frame>
 
         <!--Локальное меню сверху-->
-        <Frame Grid.ColumnSpan="2" Background="#FFB6C2FF">
+        <Frame x:Name="TopMenuFrame" Grid.ColumnSpan="2" Background="#FFB6C2FF">
             
         </Frame>
 
         <!--Основной экран информации-->
-        <Frame Grid.Row="1" Grid.Column="1">
+        <Frame x:Name="CenterWindowFrame" Grid.Row="1" Grid.Column="1">
 
         </Frame>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace CourseWork
         public MainWindow()
         {
             InitializeComponent();
+            //Сокрытие бокового и верхнего меню
+            LeftMenuFrame.Visibility = Visibility.Collapsed;
+            TopMenuFrame.Visibility = Visibility.Collapsed;
+            //Открытие страницы авторизации
+            AllWindowFrame.Navigate(new AuthorizationPage());
         }
     }
 }
