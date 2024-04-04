@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,6 +30,7 @@ namespace CourseWork.Pages
         private void EntranceBtn_Click(object sender, RoutedEventArgs e)
         {
             IEnumerable<Users> users = App.db.Users.ToList();
+
             if (App.Admin)
             {
                 foreach(var user in users)
@@ -52,23 +54,30 @@ namespace CourseWork.Pages
             }
             else
             {
-                foreach (var user in users)
+                if (Regex.IsMatch(PhoneTb.Text, @"8\d{3}\d{3}\d{2}\d{2}"))
                 {
-                    if (user.Phone == PhoneTb.Text)
+                    foreach (var user in users)
                     {
-                        if (user.Password == PasswordPb.Password)
+                        if (user.Phone == PhoneTb.Text)
                         {
-                            MessageBox.Show("Вы вошли!");
+                            if (user.Password == PasswordPb.Password)
+                            {
+                                MessageBox.Show("Вы вошли!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Неверный пароль!");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Неверный пароль!");
+                            MessageBox.Show("Пользователь не найден!");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Пользователь не найден!");
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Номер телефона введен неправильно!");
                 }
             }
         }
@@ -80,7 +89,7 @@ namespace CourseWork.Pages
 
         private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new RegistrationPage());
         }
 
         private void AdminBtn_Click(object sender, RoutedEventArgs e)
@@ -94,7 +103,7 @@ namespace CourseWork.Pages
                 LineTb.Visibility = Visibility.Collapsed;
                 App.Admin = true;
                 PasswordPb.Password = "";
-                PhoneTb.Text = "";
+                PhoneTb.Text = "8";
             }
             else
             {
@@ -105,7 +114,19 @@ namespace CourseWork.Pages
                 LineTb.Visibility = Visibility.Visible;
                 App.Admin = false;
                 PasswordPb.Password = "";
-                PhoneTb.Text = "";
+                PhoneTb.Text = "8";
+            }
+        }
+
+        private void PhoneTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!Regex.IsMatch(PhoneTb.Text, @"[^0-9]"))
+            {
+
+            }
+            else
+            {
+                PhoneTb.Text = PhoneTb.Text.Remove(PhoneTb.Text.Length - 1);
             }
         }
     }

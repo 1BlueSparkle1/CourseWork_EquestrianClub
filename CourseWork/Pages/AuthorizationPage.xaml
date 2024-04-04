@@ -12,10 +12,9 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             
             <!--Title-->
-            <TextBlock FontSize="25" HorizontalAlignment="Center">
-                Для продолжения
-            </TextBlock>
-            <TextBlock FontSize="25" HorizontalAlignment="Center">
+            <TextBlock TextAlignment="Center" 
+            FontSize="25" HorizontalAlignment="Center">
+                Для продолжения <LineBreak></LineBreak>
                 Авторизируйтесь в системе
             </TextBlock>
 
@@ -24,7 +23,7 @@
                 <StackPanel x:Name="PhoneSp"
                 Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Телефон</TextBlock>
-                    <TextBox x:Name="PhoneTb" Width="200" Margin="5"></TextBox>
+                    <TextBox x:Name="PhoneTb" Width="200" Margin="5" TextChanged="PhoneTb_TextChanged">8</TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Пароль</TextBlock>

@@ -5,10 +5,81 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CourseWork.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="1000"
       Title="RegistrationPage">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            
+            <!--Title-->
+            <TextBlock TextAlignment="Center" 
+            FontSize="25" HorizontalAlignment="Center">
+                Зарегистрируйтесь в системе
+            </TextBlock>
+
+            <!--Данные для регистрации-->
+            <StackPanel HorizontalAlignment="Center" Margin="10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="5">Фамилия</TextBlock>
+                    <TextBox x:Name="SurnameTb" Width="200" Margin="5"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="5">Имя</TextBlock>
+                    <TextBox x:Name="FirstnameTb" Width="200" Margin="5"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="5">Отчество</TextBlock>
+                    <TextBox x:Name="PatronymicTb" Width="200" Margin="5"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="5">Пол</TextBlock>
+                    <ComboBox x:Name="GenderTb" Width="200" Margin="5">
+                        <ComboBoxItem>Неопределенный</ComboBoxItem>
+                        <ComboBoxItem>Женский</ComboBoxItem>
+                        <ComboBoxItem>Мужской</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="5">Дата рождения</TextBlock>
+                    <DatePicker x:Name="DateOfBirthTb" Width="200" Margin="5"></DatePicker>
+                </StackPanel>
+                <StackPanel x:Name="PhoneSp"
+                Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="5">Телефон</TextBlock>
+                    <TextBox x:Name="PhoneTb" Width="200" Margin="5"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="5">Пароль</TextBlock>
+                    <PasswordBox x:Name="PasswordPb" Width="200" Margin="5"></PasswordBox>
+                </StackPanel>
+            </StackPanel>
+
+            <!--Кнопки входа-->
+            <Button x:Name="EntranceBtn" 
+            Margin="5" Padding="40 10" 
+            Background="#FF0019FF" Foreground="White" 
+            >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                Зарегистрироваться
+            </Button>
+
+                <!--Кнопка перехода к регистрации-->
+            <Button x:Name="RegistrationBtn"
+             Padding="15 10" Margin="5 0"
+             Background="White" BorderBrush="White" 
+             >
+                <Button.Resources>  
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                Есть аккаунта? Войти
+            </Button>
+
+        </StackPanel>
     </Grid>
 </Page>
