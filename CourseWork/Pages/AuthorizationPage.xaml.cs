@@ -24,5 +24,42 @@ namespace CourseWork.Pages
         {
             InitializeComponent();
         }
+
+        private void EntranceBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EntryGuestBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AdminBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (!App.Admin)
+            {
+                AdminBtn.Content = "Войти как Пользователь";
+                RegistrationBtn.Visibility = Visibility.Collapsed;
+                EntryGuestBtn.Visibility = Visibility.Collapsed;
+                PhoneSp.Visibility = Visibility.Collapsed;
+                LineTb.Visibility = Visibility.Collapsed;
+                App.Admin = true;
+            }
+            else
+            {
+                AdminBtn.Content = "Войти от имени Администратора";
+                RegistrationBtn.Visibility = Visibility.Visible;
+                EntryGuestBtn.Visibility = Visibility.Visible;
+                PhoneSp.Visibility = Visibility.Visible;
+                LineTb.Visibility = Visibility.Visible;
+                App.Admin = false;
+            }
+        }
     }
 }

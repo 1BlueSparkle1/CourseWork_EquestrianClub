@@ -21,8 +21,9 @@
 
             <!--Логин и пароль-->
             <StackPanel HorizontalAlignment="Center" Margin="10">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Логин</TextBlock>
+                <StackPanel x:Name="PhoneSp"
+                Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Margin="5">Телефон</TextBlock>
                     <TextBox Width="200" Margin="5"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -35,9 +36,9 @@
             <StackPanel
             Orientation="Horizontal" 
             HorizontalAlignment="Center">
-                <Button 
+                <Button x:Name="EntranceBtn" 
                 Margin="5" Padding="40 10" 
-                Background="#FF0019FF" Foreground="White">
+                Background="#FF0019FF" Foreground="White" Click="EntranceBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -45,10 +46,10 @@
                     </Button.Resources>
                     Войти
                 </Button>
-                <Button 
+                <Button x:Name="EntryGuestBtn"
                 Margin="5" Padding="40 10" 
                 Background="White" Foreground="#FF0019FF" 
-                BorderBrush="#FF0019FF">
+                BorderBrush="#FF0019FF" Click="EntryGuestBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -59,15 +60,29 @@
             </StackPanel>
 
             <!--Кнопка перехода к регистрации-->
-            <Button
+            <Button x:Name="RegistrationBtn"
             Padding="15 10" Margin="5 0"
-            Background="White" BorderBrush="White">
+            Background="White" BorderBrush="White" Click="RegistrationBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
                     </Style>
                 </Button.Resources>
                 Нет аккаунта? Зарегистрироваться
+            </Button>
+
+            <!--Кнопка перехода ко входу админа-->
+            <TextBlock x:Name="LineTb" Height="1" Background="Black">
+            </TextBlock>
+            <Button x:Name="AdminBtn"
+            Padding="15 10" Margin="5 0"
+            Background="White" BorderBrush="White" Click="AdminBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                Вход от имени Администратора
             </Button>
 
         </StackPanel>

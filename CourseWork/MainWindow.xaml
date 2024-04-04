@@ -28,7 +28,7 @@
         </Frame>
 
         <!--Локальное меню сверху-->
-        <Frame x:Name="TopMenuFrame" Grid.ColumnSpan="2" Background="#FFB6C2FF">
+        <Frame x:Name="TopMenuFrame" Grid.Column="1" Background="#FFB6C2FF">
             
         </Frame>
 
