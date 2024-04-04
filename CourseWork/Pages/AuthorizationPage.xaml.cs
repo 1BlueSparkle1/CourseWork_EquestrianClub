@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Сomponents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,12 +28,54 @@ namespace CourseWork.Pages
 
         private void EntranceBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            IEnumerable<Users> users = App.db.Users.ToList();
+            if (App.Admin)
+            {
+                foreach(var user in users)
+                {
+                    if (user.Surname == "Admin")
+                    {
+                        if (user.Password == PasswordPb.Password)
+                        {
+                            MessageBox.Show("Вы вошли!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Неверный пароль!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пользователь не найден!");
+                    }
+                }
+            }
+            else
+            {
+                foreach (var user in users)
+                {
+                    if (user.Phone == PhoneTb.Text)
+                    {
+                        if (user.Password == PasswordPb.Password)
+                        {
+                            MessageBox.Show("Вы вошли!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Неверный пароль!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пользователь не найден!");
+                    }
+                }
+            }
         }
 
         private void EntryGuestBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Вы вошли!");
         }
 
         private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
@@ -50,6 +93,8 @@ namespace CourseWork.Pages
                 PhoneSp.Visibility = Visibility.Collapsed;
                 LineTb.Visibility = Visibility.Collapsed;
                 App.Admin = true;
+                PasswordPb.Password = "";
+                PhoneTb.Text = "";
             }
             else
             {
@@ -59,6 +104,8 @@ namespace CourseWork.Pages
                 PhoneSp.Visibility = Visibility.Visible;
                 LineTb.Visibility = Visibility.Visible;
                 App.Admin = false;
+                PasswordPb.Password = "";
+                PhoneTb.Text = "";
             }
         }
     }

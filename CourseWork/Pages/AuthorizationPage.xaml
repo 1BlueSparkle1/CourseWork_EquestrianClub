@@ -24,11 +24,11 @@
                 <StackPanel x:Name="PhoneSp"
                 Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Телефон</TextBlock>
-                    <TextBox Width="200" Margin="5"></TextBox>
+                    <TextBox x:Name="PhoneTb" Width="200" Margin="5"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Пароль</TextBlock>
-                    <PasswordBox Width="200" Margin="5"></PasswordBox>
+                    <PasswordBox x:Name="PasswordPb" Width="200" Margin="5"></PasswordBox>
                 </StackPanel>
             </StackPanel>
 
@@ -38,7 +38,8 @@
             HorizontalAlignment="Center">
                 <Button x:Name="EntranceBtn" 
                 Margin="5" Padding="40 10" 
-                Background="#FF0019FF" Foreground="White" Click="EntranceBtn_Click">
+                Background="#FF0019FF" Foreground="White" 
+                Click="EntranceBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -62,7 +63,8 @@
             <!--Кнопка перехода к регистрации-->
             <Button x:Name="RegistrationBtn"
             Padding="15 10" Margin="5 0"
-            Background="White" BorderBrush="White" Click="RegistrationBtn_Click">
+            Background="White" BorderBrush="White" 
+            Click="RegistrationBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>

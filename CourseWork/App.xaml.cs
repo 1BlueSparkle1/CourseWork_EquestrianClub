@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Сomponents;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,5 +15,6 @@ namespace CourseWork
     public partial class App : Application
     {
         public static bool Admin = false;
+        public static CourseWorkEntities db = new CourseWorkEntities();
     }
 }
