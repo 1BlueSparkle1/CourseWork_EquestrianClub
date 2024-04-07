@@ -21,19 +21,19 @@
             <StackPanel HorizontalAlignment="Center" Margin="10">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Фамилия</TextBlock>
-                    <TextBox x:Name="SurnameTb" Width="200" Margin="5"></TextBox>
+                    <TextBox x:Name="SurnameTb" MaxLength="50" Width="200" Margin="5"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Имя</TextBlock>
-                    <TextBox x:Name="FirstnameTb" Width="200" Margin="5"></TextBox>
+                    <TextBox x:Name="FirstnameTb" MaxLength="50" Width="200" Margin="5"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Отчество</TextBlock>
-                    <TextBox x:Name="PatronymicTb" Width="200" Margin="5"></TextBox>
+                    <TextBox x:Name="PatronymicTb" MaxLength="50" Width="200" Margin="5"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Пол</TextBlock>
-                    <ComboBox x:Name="GenderTb" Width="200" Margin="5">
+                    <ComboBox x:Name="GenderCb" Width="200" Margin="5">
                         <ComboBoxItem>Неопределенный</ComboBoxItem>
                         <ComboBoxItem>Женский</ComboBoxItem>
                         <ComboBoxItem>Мужской</ComboBoxItem>
@@ -46,19 +46,19 @@
                 <StackPanel x:Name="PhoneSp"
                 Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Телефон</TextBlock>
-                    <TextBox x:Name="PhoneTb" Width="200" Margin="5"></TextBox>
+                    <TextBox x:Name="PhoneTb" MaxLength="11" Width="200" Margin="5" PreviewTextInput="PhoneTb_PreviewTextInput">8</TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Margin="5">Пароль</TextBlock>
-                    <PasswordBox x:Name="PasswordPb" Width="200" Margin="5"></PasswordBox>
+                    <PasswordBox x:Name="PasswordPb" MaxLength="50" Width="200" Margin="5"></PasswordBox>
                 </StackPanel>
             </StackPanel>
 
-            <!--Кнопки входа-->
-            <Button x:Name="EntranceBtn" 
+            <!--Кнопка регистрации-->
+            <Button x:Name="RegistrationBtn" 
             Margin="5" Padding="40 10" 
-            Background="#FF0019FF" Foreground="White" 
-            >
+            Background="#FF0019FF" Foreground="White"
+            Click="RegistrationBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -67,11 +67,11 @@
                 Зарегистрироваться
             </Button>
 
-                <!--Кнопка перехода к регистрации-->
-            <Button x:Name="RegistrationBtn"
-             Padding="15 10" Margin="5 0"
-             Background="White" BorderBrush="White" 
-             >
+                <!--Кнопка перехода ко входу-->
+            <Button x:Name="EntranceBtn"
+            Padding="15 10" Margin="5 0"
+            Background="White" BorderBrush="White"
+            Click="EntranceBtn_Click">
                 <Button.Resources>  
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>

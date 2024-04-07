@@ -118,15 +118,11 @@ namespace CourseWork.Pages
             }
         }
 
-        private void PhoneTb_TextChanged(object sender, TextChangedEventArgs e)
+        private void PhoneTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Regex.IsMatch(PhoneTb.Text, @"[^0-9]"))
+            if (Regex.IsMatch(e.Text, @"[^0-9]"))
             {
-
-            }
-            else
-            {
-                PhoneTb.Text = PhoneTb.Text.Remove(PhoneTb.Text.Length - 1);
+                e.Handled = true;
             }
         }
     }
