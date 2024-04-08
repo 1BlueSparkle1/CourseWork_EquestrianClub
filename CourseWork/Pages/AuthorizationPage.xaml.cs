@@ -22,59 +22,108 @@ namespace CourseWork.Pages
     /// </summary>
     public partial class AuthorizationPage : Page
     {
+        //переменная для использования элементов MainWindow
+        public static MainWindow mainWindow;
+        //объявление вспомогательных переменных
+        private static Users User = new Users();
+        private static bool error = true;
+
         public AuthorizationPage()
         {
             InitializeComponent();
         }
 
+        //Кнопка войти
         private void EntranceBtn_Click(object sender, RoutedEventArgs e)
         {
+            //Объявление перебора всех юзеров
             IEnumerable<Users> users = App.db.Users.ToList();
 
+            //Проверка на админа
             if (App.Admin)
             {
+                //перебор юзеров
                 foreach(var user in users)
                 {
+                    //находим юзера админа
                     if (user.Surname == "Admin")
                     {
-                        if (user.Password == PasswordPb.Password)
-                        {
-                            MessageBox.Show("Вы вошли!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Неверный пароль!");
-                        }
+                        //если найден указываем, что нет ошибок
+                        error = false;
+                        //и записываем этого пользователя в переменную
+                        User = user;
+                    }
+                }
+                //если ошибок нет
+                if (!error)
+                {
+                    //проверяем правильность пароля админа
+                    if (User.Password == PasswordPb.Password)
+                    {
+
+                        //отображение и сокрытие фреймов при правильном пароле
+                        mainWindow.LeftMenuFrame.Visibility = Visibility.Visible;
+                        mainWindow.TopMenuFrame.Visibility = Visibility.Visible;
+                        mainWindow.AllWindowFrame.Visibility = Visibility.Collapsed;
+                        // вход в систему
+                        NavigationService.Navigate(new TestPage());
+                        //обнуление ошибок
+                        error = true;
                     }
                     else
                     {
-                        MessageBox.Show("Пользователь не найден!");
+                        //вывод сообщения о неправильном пароле
+                        MessageBox.Show("Неверный пароль!");
                     }
                 }
             }
-            else
+            else // если не админ
             {
+                //проверка правильности введения телефона
                 if (Regex.IsMatch(PhoneTb.Text, @"8\d{3}\d{3}\d{2}\d{2}"))
                 {
+                    //перебор пользователей
                     foreach (var user in users)
                     {
+                        //поиск пользователя с таким телефоном
                         if (user.Phone == PhoneTb.Text)
                         {
-                            if (user.Password == PasswordPb.Password)
-                            {
-                                MessageBox.Show("Вы вошли!");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Неверный пароль!");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Пользователь не найден!");
+                            //если найден указываем, что нет ошибок
+                            error = false;
+                            //и записываем этого пользователя в переменную
+                            User = user;
                         }
                     }
+                    //если ошибок с нахождением по телефону нет
+                    if (!error)
+                    {
+                        //обнуляем ошибки
+                        error = true;
+                        //если у выбраного пользователя совпадает пароль
+                        if (User.Password == PasswordPb.Password)
+                        {
+                            //отображение и сокрытие фреймов
+                            mainWindow.LeftMenuFrame.Visibility = Visibility.Visible;
+                            mainWindow.TopMenuFrame.Visibility = Visibility.Visible;
+                            mainWindow.AllWindowFrame.Visibility = Visibility.Collapsed;
+                            //вход в систему
+                            NavigationService.Navigate(new TestPage());
+                            //обнуление ошибок
+                            error = true;
+                        }
+                        //если у выбраного пользователя не совпадает пароль
+                        else
+                        {
+                            MessageBox.Show("Пароль введен неправильно!");
+                        }
+                    }
+                    //если ошибоки с нахождением по телефону есть
+                    else
+                    {
+                        MessageBox.Show("Пользователь с таким телефоном не найден!");
+                    }
                 }
+                //если телефон введен неправильно
                 else
                 {
                     MessageBox.Show("Номер телефона введен неправильно!");
@@ -82,46 +131,68 @@ namespace CourseWork.Pages
             }
         }
 
+        //кнопка входа как гость
         private void EntryGuestBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Вы вошли!");
+            //отображение и сокрытие фреймов
+            mainWindow.LeftMenuFrame.Visibility = Visibility.Visible;
+            mainWindow.TopMenuFrame.Visibility = Visibility.Visible;
+            mainWindow.AllWindowFrame.Visibility = Visibility.Collapsed;
+            //вход в систему
+            NavigationService.Navigate(new TestPage());
         }
 
+        //кнопка перехода к регистрации
         private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
         {
+            //переход на страницу регистрации
             NavigationService.Navigate(new RegistrationPage());
         }
 
+        //кнопка входа для админа или пользователя
         private void AdminBtn_Click(object sender, RoutedEventArgs e)
         {
+            //проверка на админа
             if (!App.Admin)
             {
+                //измеяем текст кнопки
                 AdminBtn.Content = "Войти как Пользователь";
+                //скрываем ненужные элементы
                 RegistrationBtn.Visibility = Visibility.Collapsed;
                 EntryGuestBtn.Visibility = Visibility.Collapsed;
                 PhoneSp.Visibility = Visibility.Collapsed;
                 LineTb.Visibility = Visibility.Collapsed;
+                //назначаем пользователя админом
                 App.Admin = true;
+                //обнуляем пароль и телефон
                 PasswordPb.Password = "";
                 PhoneTb.Text = "8";
             }
+            //если админ
             else
             {
+                //измеяем текст кнопки
                 AdminBtn.Content = "Войти от имени Администратора";
+                //показываем скрытые элементы
                 RegistrationBtn.Visibility = Visibility.Visible;
                 EntryGuestBtn.Visibility = Visibility.Visible;
                 PhoneSp.Visibility = Visibility.Visible;
                 LineTb.Visibility = Visibility.Visible;
+                //снимаем звание админа
                 App.Admin = false;
+                //обнуляем пароль и телефон
                 PasswordPb.Password = "";
                 PhoneTb.Text = "8";
             }
         }
 
+        //при вводе символов в строку телефона
         private void PhoneTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            //соответствует ли символ цифре
             if (Regex.IsMatch(e.Text, @"[^0-9]"))
             {
+                //если нет символ не вводится
                 e.Handled = true;
             }
         }

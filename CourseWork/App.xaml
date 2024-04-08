@@ -16,5 +16,8 @@
         <Style TargetType="PasswordBox">
             <Setter Property="FontSize" Value="20"></Setter>
         </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

@@ -25,6 +25,7 @@ namespace CourseWork.Сomponents
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }

@@ -24,6 +24,9 @@ namespace CourseWork
         public MainWindow()
         {
             InitializeComponent();
+            //объявление что MainWindow на страницах это это окно
+            AuthorizationPage.mainWindow = this;
+            RegistrationPage.mainWindow = this;
             //Сокрытие бокового и верхнего меню
             LeftMenuFrame.Visibility = Visibility.Collapsed;
             TopMenuFrame.Visibility = Visibility.Collapsed;
