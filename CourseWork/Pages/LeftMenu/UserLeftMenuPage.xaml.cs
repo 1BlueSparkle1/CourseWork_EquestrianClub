@@ -1,5 +1,6 @@
 ﻿using CourseWork.Components;
 using CourseWork.Pages.CenterFrame;
+using CourseWork.Pages.TopMenu;
 using CourseWork.Сomponents;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,11 @@ namespace CourseWork.Pages.LeftMenu
         {
             //открытие профиля в центральной области
             Navigations.NavigateCenterWindow(new ProfilePage());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Navigations.NavigateTopMenu(new TrainingTopMenuPage());
         }
     }
 }

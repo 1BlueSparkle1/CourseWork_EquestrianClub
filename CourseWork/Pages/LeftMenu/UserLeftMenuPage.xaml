@@ -31,7 +31,7 @@
                 
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0">
+                Foreground="White" Padding="0" Click="Button_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>

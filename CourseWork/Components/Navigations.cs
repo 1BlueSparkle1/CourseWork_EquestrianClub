@@ -63,8 +63,9 @@ namespace CourseWork.Сomponents
                 mainWindow.TopMenuFrame.Visibility = Visibility.Collapsed;
                 //отображается общий фрейм
                 mainWindow.AllWindowFrame.Visibility = Visibility.Visible;
-                //центральная область принимает пустую страничку
+                //центр и верх принимают пустую страничку
                 NavigateCenterWindow(new TestPage());
+                NavigateTopMenu(new TestPage());
             }
         }
     }
