@@ -22,12 +22,12 @@
             <StackPanel HorizontalAlignment="Center" Margin="10">
                 <StackPanel x:Name="PhoneSp"
                 Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Телефон</TextBlock>
-                    <TextBox x:Name="PhoneTb" MaxLength="11" Width="200" Margin="5" PreviewTextInput="PhoneTb_PreviewTextInput">8</TextBox>
+                    <TextBlock>Телефон</TextBlock>
+                    <TextBox x:Name="PhoneTb" MaxLength="11" PreviewTextInput="PhoneTb_PreviewTextInput">8</TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Пароль</TextBlock>
-                    <PasswordBox MaxLength="50" x:Name="PasswordPb" Width="200" Margin="5"></PasswordBox>
+                    <TextBlock>Пароль</TextBlock>
+                    <PasswordBox MaxLength="50" x:Name="PasswordPb"></PasswordBox>
                 </StackPanel>
             </StackPanel>
 
@@ -35,9 +35,8 @@
             <StackPanel
             Orientation="Horizontal" 
             HorizontalAlignment="Center">
-                <Button x:Name="EntranceBtn" 
-                Margin="5" Padding="40 10" 
-                Background="#FF0019FF" Foreground="White" 
+                <Button x:Name="EntranceBtn" Padding="40 10" 
+                Background="#FFA1672B" Foreground="White" 
                 Click="EntranceBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -46,10 +45,9 @@
                     </Button.Resources>
                     Войти
                 </Button>
-                <Button x:Name="EntryGuestBtn"
-                Margin="5" Padding="40 10"
-                Background="White" Foreground="#FF0019FF" 
-                BorderBrush="#FF0019FF" Click="EntryGuestBtn_Click">
+                <Button x:Name="EntryGuestBtn" Padding="40 10"
+                Background="White" Foreground="#FFA1672B" 
+                BorderBrush="#FFA1672B" Click="EntryGuestBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>

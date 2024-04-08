@@ -20,44 +20,43 @@
             <!--Данные для регистрации-->
             <StackPanel HorizontalAlignment="Center" Margin="10">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Фамилия</TextBlock>
-                    <TextBox x:Name="SurnameTb" MaxLength="50" Width="200" Margin="5"></TextBox>
+                    <TextBlock>Фамилия</TextBlock>
+                    <TextBox x:Name="SurnameTb" MaxLength="50"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Имя</TextBlock>
-                    <TextBox x:Name="FirstnameTb" MaxLength="50" Width="200" Margin="5"></TextBox>
+                    <TextBlock>Имя</TextBlock>
+                    <TextBox x:Name="FirstnameTb" MaxLength="50"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Отчество</TextBlock>
-                    <TextBox x:Name="PatronymicTb" MaxLength="50" Width="200" Margin="5"></TextBox>
+                    <TextBlock>Отчество</TextBlock>
+                    <TextBox x:Name="PatronymicTb" MaxLength="50"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Пол</TextBlock>
-                    <ComboBox x:Name="GenderCb" Width="200" Margin="5">
+                    <TextBlock VerticalAlignment="Center">Пол</TextBlock>
+                    <ComboBox x:Name="GenderCb">
                         <ComboBoxItem>Неопределенный</ComboBoxItem>
                         <ComboBoxItem>Женский</ComboBoxItem>
                         <ComboBoxItem>Мужской</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Дата рождения</TextBlock>
-                    <DatePicker x:Name="DateOfBirthTb" Width="200" Margin="5"></DatePicker>
+                    <TextBlock VerticalAlignment="Center">Дата рождения</TextBlock>
+                    <DatePicker x:Name="DateOfBirthTb"></DatePicker>
                 </StackPanel>
                 <StackPanel x:Name="PhoneSp"
                 Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Телефон</TextBlock>
-                    <TextBox x:Name="PhoneTb" MaxLength="11" Width="200" Margin="5" PreviewTextInput="PhoneTb_PreviewTextInput">8</TextBox>
+                    <TextBlock>Телефон</TextBlock>
+                    <TextBox x:Name="PhoneTb" MaxLength="11" PreviewTextInput="PhoneTb_PreviewTextInput">8</TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Margin="5">Пароль</TextBlock>
-                    <PasswordBox x:Name="PasswordPb" MaxLength="50" Width="200" Margin="5"></PasswordBox>
+                    <TextBlock>Пароль</TextBlock>
+                    <PasswordBox x:Name="PasswordPb" MaxLength="50"></PasswordBox>
                 </StackPanel>
             </StackPanel>
 
             <!--Кнопка регистрации-->
-            <Button x:Name="RegistrationBtn" 
-            Margin="5" Padding="40 10" 
-            Background="#FF0019FF" Foreground="White"
+            <Button x:Name="RegistrationBtn" Padding="40 10" 
+            Background="#FFA1672B" Foreground="White"
             Click="RegistrationBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CourseWork"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="700" Width="1000">
+        Title="Конный клуб" Height="700" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -23,12 +23,12 @@
         </Frame>
 
         <!--Общее меню слева-->
-        <Frame x:Name="LeftMenuFrame" NavigationUIVisibility="Hidden" Grid.RowSpan="2" Background="#FFB6C2FF">
+        <Frame x:Name="LeftMenuFrame" NavigationUIVisibility="Hidden" Grid.RowSpan="2" Background="#FFD1AE8A">
             
         </Frame>
 
         <!--Локальное меню сверху-->
-        <Frame x:Name="TopMenuFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Background="#FFB6C2FF">
+        <Frame x:Name="TopMenuFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Background="#FFD1AE8A">
             
         </Frame>
 

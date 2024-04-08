@@ -22,8 +22,6 @@ namespace CourseWork.Pages
     /// </summary>
     public partial class RegistrationPage : Page
     {
-        //переменная для использования элементов MainWindow
-        public static MainWindow mainWindow;
         //объявление вспомогательной переменной
         private static Users user = new Users();
         public RegistrationPage()
@@ -85,11 +83,9 @@ namespace CourseWork.Pages
                 //оповещаем пользователя о регистрации
                 MessageBox.Show("Вы зарегистрированы!");
                 //отображение и сокрытие фреймов
-                mainWindow.LeftMenuFrame.Visibility = Visibility.Visible;
-                mainWindow.TopMenuFrame.Visibility = Visibility.Visible;
-                mainWindow.AllWindowFrame.Visibility = Visibility.Collapsed;
+                Navigations.NavigateVisibleFrame(true);
                 //вход в систему
-                NavigationService.Navigate(new TestPage());
+                Navigations.NavigateCenterWindow(new TestPage());
             }
         }
 

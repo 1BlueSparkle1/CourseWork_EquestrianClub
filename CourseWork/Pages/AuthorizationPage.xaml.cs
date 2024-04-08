@@ -1,4 +1,5 @@
-﻿using CourseWork.Сomponents;
+﻿using CourseWork.Pages.LeftMenu;
+using CourseWork.Сomponents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,6 @@ namespace CourseWork.Pages
     /// </summary>
     public partial class AuthorizationPage : Page
     {
-        //переменная для использования элементов MainWindow
-        public static MainWindow mainWindow;
         //объявление вспомогательных переменных
         private static Users User = new Users();
         private static bool error = true;
@@ -62,11 +61,9 @@ namespace CourseWork.Pages
                     {
 
                         //отображение и сокрытие фреймов при правильном пароле
-                        mainWindow.LeftMenuFrame.Visibility = Visibility.Visible;
-                        mainWindow.TopMenuFrame.Visibility = Visibility.Visible;
-                        mainWindow.AllWindowFrame.Visibility = Visibility.Collapsed;
+                        Navigations.NavigateVisibleFrame(true);
                         // вход в систему
-                        NavigationService.Navigate(new TestPage());
+                        Navigations.NavigateCenterWindow(new TestPage());
                         //обнуление ошибок
                         error = true;
                     }
@@ -103,11 +100,9 @@ namespace CourseWork.Pages
                         if (User.Password == PasswordPb.Password)
                         {
                             //отображение и сокрытие фреймов
-                            mainWindow.LeftMenuFrame.Visibility = Visibility.Visible;
-                            mainWindow.TopMenuFrame.Visibility = Visibility.Visible;
-                            mainWindow.AllWindowFrame.Visibility = Visibility.Collapsed;
+                            Navigations.NavigateVisibleFrame(true);
                             //вход в систему
-                            NavigationService.Navigate(new TestPage());
+                            Navigations.NavigateCenterWindow(new TestPage());
                             //обнуление ошибок
                             error = true;
                         }
@@ -135,11 +130,10 @@ namespace CourseWork.Pages
         private void EntryGuestBtn_Click(object sender, RoutedEventArgs e)
         {
             //отображение и сокрытие фреймов
-            mainWindow.LeftMenuFrame.Visibility = Visibility.Visible;
-            mainWindow.TopMenuFrame.Visibility = Visibility.Visible;
-            mainWindow.AllWindowFrame.Visibility = Visibility.Collapsed;
+            Navigations.NavigateVisibleFrame(true);
             //вход в систему
-            NavigationService.Navigate(new TestPage());
+            Navigations.NavigateCenterWindow(new TestPage());
+            Navigations.NavigateLeftMenu(new UserLeftMenuPage());
         }
 
         //кнопка перехода к регистрации
