@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CourseWork.Сomponents
+namespace CourseWork.Components
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CourseWorkEntities : DbContext
+    public partial class CourseWorkEntities1 : DbContext
     {
-        public CourseWorkEntities()
-            : base("name=CourseWorkEntities")
+        public CourseWorkEntities1()
+            : base("name=CourseWorkEntities1")
         {
         }
     

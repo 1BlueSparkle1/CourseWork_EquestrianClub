@@ -7,17 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CourseWork.Сomponents
+namespace CourseWork.Components
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Gender
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Gender()
+        {
+            this.Users = new HashSet<Users>();
+        }
+    
+        public int Id { get; set; }
+        public string Title { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

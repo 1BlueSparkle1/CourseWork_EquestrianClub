@@ -1,4 +1,5 @@
-﻿using CourseWork.Сomponents;
+﻿using CourseWork.Components;
+using CourseWork.Сomponents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,19 @@ namespace CourseWork.Pages
         //кнопка регистрации
         private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
         {
+            //перебор пользователей
+            IEnumerable<Users> users = App.db.Users.ToList();
+            //переменная для нахождения ошибки
+            bool error = false;
+            foreach (var User in users)
+            {
+                //если пользователь с таким телефоном уже есть
+                if (User.Phone == PhoneTb.Text)
+                {
+                    //отмечается ошибка
+                    error = true;
+                }
+            }
             //поверка на ввод основных данных
             if(SurnameTb.Text == "" || PhoneTb.Text == "" || PasswordPb.Password == "")
             {
@@ -54,6 +68,11 @@ namespace CourseWork.Pages
             {
                 //если введен неправильно
                 MessageBox.Show("Номер телефона введен неправильно!");
+            }
+            //есть ли ошибка телефона
+            else if (error)
+            {
+                MessageBox.Show("Пользователь с таким телефоном уже существует!");
             }
             //если все проверки пройдены
             else 
@@ -74,6 +93,7 @@ namespace CourseWork.Pages
                 {
                     user.GenderId = 3;
                 }
+                user.DateOfBirthday = DateOfBirthTb.DisplayDate;
                 user.Phone = PhoneTb.Text;
                 user.Password = PasswordPb.Password;
                 //записываем данные с переменной в бд
@@ -84,6 +104,8 @@ namespace CourseWork.Pages
                 MessageBox.Show("Вы зарегистрированы!");
                 //отображение и сокрытие фреймов
                 Navigations.NavigateVisibleFrame(true);
+                //обозначение, что не гость
+                App.Guest = false;
                 //вход в систему
                 Navigations.NavigateCenterWindow(new TestPage());
             }

@@ -1,4 +1,5 @@
-﻿using CourseWork.Pages.LeftMenu;
+﻿using CourseWork.Components;
+using CourseWork.Pages.LeftMenu;
 using CourseWork.Сomponents;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,8 @@ namespace CourseWork.Pages
 
                         //отображение и сокрытие фреймов при правильном пароле
                         Navigations.NavigateVisibleFrame(true);
+                        //обозначение, что не гость
+                        App.Guest = false;
                         // вход в систему
                         Navigations.NavigateCenterWindow(new TestPage());
                         //обнуление ошибок
@@ -101,8 +104,12 @@ namespace CourseWork.Pages
                         {
                             //отображение и сокрытие фреймов
                             Navigations.NavigateVisibleFrame(true);
+                            //обозначение, что не гость
+                            App.Guest = false;
+                            //записываем какой ползователь входит
+                            App.ThisUser = User;
                             //вход в систему
-                            Navigations.NavigateCenterWindow(new TestPage());
+                            Navigations.NavigateLeftMenu(new UserLeftMenuPage());
                             //обнуление ошибок
                             error = true;
                         }
@@ -131,6 +138,8 @@ namespace CourseWork.Pages
         {
             //отображение и сокрытие фреймов
             Navigations.NavigateVisibleFrame(true);
+            //объявление, что гость
+            App.Guest = true;
             //вход в систему
             Navigations.NavigateCenterWindow(new TestPage());
             Navigations.NavigateLeftMenu(new UserLeftMenuPage());

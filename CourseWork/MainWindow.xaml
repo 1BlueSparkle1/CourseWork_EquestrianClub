@@ -36,5 +36,7 @@
         <Frame x:Name="CenterWindowFrame" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1">
 
         </Frame>
+        
+        
     </Grid>
 </Window>

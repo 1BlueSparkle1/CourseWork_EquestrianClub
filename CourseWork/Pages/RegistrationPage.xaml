@@ -19,18 +19,26 @@
 
             <!--Данные для регистрации-->
             <StackPanel HorizontalAlignment="Center" Margin="10">
+
+                <!--Фамилия-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock>Фамилия</TextBlock>
                     <TextBox x:Name="SurnameTb" MaxLength="50"></TextBox>
                 </StackPanel>
+
+                <!--Имя-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock>Имя</TextBlock>
                     <TextBox x:Name="FirstnameTb" MaxLength="50"></TextBox>
                 </StackPanel>
+
+                <!--Отчество-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock>Отчество</TextBlock>
                     <TextBox x:Name="PatronymicTb" MaxLength="50"></TextBox>
                 </StackPanel>
+
+                <!--Пол-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock VerticalAlignment="Center">Пол</TextBlock>
                     <ComboBox x:Name="GenderCb">
@@ -39,19 +47,26 @@
                         <ComboBoxItem>Мужской</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
+
+                <!--Дата рождения-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock VerticalAlignment="Center">Дата рождения</TextBlock>
                     <DatePicker x:Name="DateOfBirthTb"></DatePicker>
                 </StackPanel>
+
+                <!--Телефон-->
                 <StackPanel x:Name="PhoneSp"
                 Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock>Телефон</TextBlock>
                     <TextBox x:Name="PhoneTb" MaxLength="11" PreviewTextInput="PhoneTb_PreviewTextInput">8</TextBox>
                 </StackPanel>
+
+                <!--Пароль-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock>Пароль</TextBlock>
                     <PasswordBox x:Name="PasswordPb" MaxLength="50"></PasswordBox>
                 </StackPanel>
+                
             </StackPanel>
 
             <!--Кнопка регистрации-->

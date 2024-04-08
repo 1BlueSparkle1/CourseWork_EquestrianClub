@@ -10,8 +10,25 @@
 
     <Grid Margin="5">
         <StackPanel>
+            
+            <!--кнопка для перехода в профиль-->
+            <Button Margin="19" 
+            VerticalAlignment="Bottom" x:Name="ProfileBtn"
+            Background="#FF8D551C" Foreground="White" Click="ProfileBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <TextBlock FontSize="15">Профиль</TextBlock>
+            </Button>
+
+            <!--оглавление группы кнопок-->
             <TextBlock Foreground="#FF8D551C">Услуги</TextBlock>
+
+            <!--кнопка для перехода в разделы-->
             <StackPanel Margin="20,0,0,0">
+                
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
                 Foreground="White" Padding="0">
@@ -22,6 +39,7 @@
                     </Button.Resources>
                     <TextBlock FontSize="15">Тренировки</TextBlock>
                 </Button>
+                
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
                 Foreground="White" Padding="0">
@@ -32,6 +50,7 @@
                     </Button.Resources>
                     <TextBlock FontSize="15">Прогулки</TextBlock>
                 </Button>
+                
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
                 Foreground="White" Padding="0">
@@ -43,8 +62,13 @@
                     <TextBlock FontSize="15">Другое</TextBlock>
                 </Button>
             </StackPanel>
+
+            <!--оглавление группы кнопок-->
             <TextBlock Foreground="#FF8D551C">Лошади</TextBlock>
+
+            <!--кнопка для перехода в разделы-->
             <StackPanel Margin="20,0,0,0">
+                
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
                 Foreground="White" Padding="0">
@@ -55,6 +79,7 @@
                     </Button.Resources>
                     <TextBlock FontSize="15">Информация</TextBlock>
                 </Button>
+                
                 <Button HorizontalContentAlignment="Left"  
                 Background="#00000000" BorderBrush="#00000000"
                 Foreground="White" Padding="0">
@@ -66,8 +91,13 @@
                     <TextBlock FontSize="15">Запись на экскурсию</TextBlock>
                 </Button>
             </StackPanel>
+
+            <!--оглавление группы кнопок-->
             <TextBlock Foreground="#FF8D551C">Зоны отдаха</TextBlock>
+
+            <!--кнопка для перехода в разделы-->
             <StackPanel Margin="20,0,0,0">
+                
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
                 Foreground="White" Padding="0">
@@ -80,6 +110,8 @@
                 </Button>
             </StackPanel>
         </StackPanel>
+
+        <!--кнопка для выхода из аккаунта-->
         <Button Margin="10" Padding="3" 
         VerticalAlignment="Bottom" x:Name="ExitBtn"
         Background="#FF8D551C" Foreground="White" Click="ExitBtn_Click">
