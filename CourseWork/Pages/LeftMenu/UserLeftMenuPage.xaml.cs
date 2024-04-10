@@ -58,9 +58,25 @@ namespace CourseWork.Pages.LeftMenu
             Navigations.NavigateCenterWindow(new ProfilePage());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TrainingBtn_Click(object sender, RoutedEventArgs e)
         {
             Navigations.NavigateTopMenu(new TrainingTopMenuPage());
+        }
+
+        private void StrollsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigations.NavigateTopMenu(new StrollsTopMenuPage());
+        }
+
+        private void OtherBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigations.NavigateTopMenu(new OtherTopMenuPage());
+        }
+
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigations.NavigateTopMenu(new TestPage());
+            Navigations.NavigateCenterWindow(new TestPage());
         }
     }
 }

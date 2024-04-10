@@ -23,15 +23,30 @@
                 <TextBlock FontSize="15">Профиль</TextBlock>
             </Button>
 
+            <!--Кнопка главного меню-->
+            <Button HorizontalContentAlignment="Left" Padding="0" 
+            Margin="0,5,5,5" Background="{x:Null}" BorderBrush="{x:Null}"
+            x:Name="HomeBtn" Click="HomeBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <TextBlock FontSize="22" Foreground="#FF8D551C">
+                    Главная страница
+                </TextBlock>
+            </Button>
+
             <!--оглавление группы кнопок-->
             <TextBlock Foreground="#FF8D551C">Услуги</TextBlock>
 
             <!--кнопка для перехода в разделы-->
             <StackPanel Margin="20,0,0,0">
                 
-                <Button HorizontalContentAlignment="Left" 
+                <Button HorizontalContentAlignment="Left" x:Name="TrainingBtn"
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0" Click="Button_Click">
+                Foreground="White" Padding="0" Click="TrainingBtn_Click"
+                Margin="5 0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -40,9 +55,10 @@
                     <TextBlock FontSize="15">Тренировки</TextBlock>
                 </Button>
                 
-                <Button HorizontalContentAlignment="Left" 
+                <Button HorizontalContentAlignment="Left" x:Name="StrollsBtn"
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0">
+                Foreground="White" Padding="0" Click="StrollsBtn_Click"
+                Margin="5 0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -51,9 +67,10 @@
                     <TextBlock FontSize="15">Прогулки</TextBlock>
                 </Button>
                 
-                <Button HorizontalContentAlignment="Left" 
+                <Button HorizontalContentAlignment="Left" x:Name="OtherBtn"
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0">
+                Foreground="White" Padding="0" Click="OtherBtn_Click"
+                Margin="5 0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -71,7 +88,8 @@
                 
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0">
+                Foreground="White" Padding="0"
+                Margin="5 0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -82,7 +100,8 @@
                 
                 <Button HorizontalContentAlignment="Left"  
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0">
+                Foreground="White" Padding="0"
+                Margin="5 0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -93,14 +112,15 @@
             </StackPanel>
 
             <!--оглавление группы кнопок-->
-            <TextBlock Foreground="#FF8D551C">Зоны отдаха</TextBlock>
+            <TextBlock Foreground="#FF8D551C">Зоны отдыха</TextBlock>
 
             <!--кнопка для перехода в разделы-->
             <StackPanel Margin="20,0,0,0">
                 
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0">
+                Foreground="White" Padding="0"
+                Margin="5 0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -109,6 +129,39 @@
                     <TextBlock FontSize="15">Информация</TextBlock>
                 </Button>
             </StackPanel>
+
+            <!--оглавление группы кнопок-->
+            <TextBlock Foreground="#FF8D551C">Связь</TextBlock>
+
+            <!--кнопка для перехода в разделы-->
+            <StackPanel Margin="20,0,0,0">
+
+                <Button HorizontalContentAlignment="Left" 
+                Background="#00000000" BorderBrush="#00000000"
+                Foreground="White" Padding="0"
+                Margin="5 0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock FontSize="15">Предложить свою услугу</TextBlock>
+                </Button>
+
+                <Button HorizontalContentAlignment="Left" 
+                Background="#00000000" BorderBrush="#00000000"
+                Foreground="White" Padding="0"
+                Margin="5 0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock FontSize="15">Тех поддержка</TextBlock>
+                </Button>
+
+            </StackPanel>
+
         </StackPanel>
 
         <!--кнопка для выхода из аккаунта-->

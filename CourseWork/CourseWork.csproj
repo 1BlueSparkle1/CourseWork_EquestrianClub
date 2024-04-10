@@ -133,6 +133,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\TopMenu\OtherTopMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TopMenu\StrollsTopMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\TopMenu\TrainingTopMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +149,12 @@
   <ItemGroup>
     <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TopMenu\OtherTopMenuPage.xaml.cs">
+      <DependentUpon>OtherTopMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TopMenu\StrollsTopMenuPage.xaml.cs">
+      <DependentUpon>StrollsTopMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TopMenu\TrainingTopMenuPage.xaml.cs">
       <DependentUpon>TrainingTopMenuPage.xaml</DependentUpon>
