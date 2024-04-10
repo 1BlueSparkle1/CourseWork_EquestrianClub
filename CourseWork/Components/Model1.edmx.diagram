@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="CourseWorkModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CourseWorkModel.Users" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="CourseWorkModel.FK_Users_Gender" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CourseWorkModel.Position" Width="1.5" PointX="0.75" PointY="7.75" />
+        <AssociationConnector Association="CourseWorkModel.FK_Users_Position" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

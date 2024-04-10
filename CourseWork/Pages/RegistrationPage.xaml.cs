@@ -94,6 +94,7 @@ namespace CourseWork.Pages
                     user.GenderId = 3;
                 }
                 user.DateOfBirthday = DateOfBirthTb.DisplayDate;
+                user.PositionId = 1;
                 user.Phone = PhoneTb.Text;
                 user.Password = PasswordPb.Password;
                 //записываем данные с переменной в бд

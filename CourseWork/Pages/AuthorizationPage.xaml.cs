@@ -46,7 +46,7 @@ namespace CourseWork.Pages
                 foreach(var user in users)
                 {
                     //находим юзера админа
-                    if (user.Surname == "Admin")
+                    if (user.Surname == "Admin" && user.PositionId == 4)
                     {
                         //если найден указываем, что нет ошибок
                         error = false;
@@ -102,16 +102,51 @@ namespace CourseWork.Pages
                         //если у выбраного пользователя совпадает пароль
                         if (User.Password == PasswordPb.Password)
                         {
-                            //отображение и сокрытие фреймов
-                            Navigations.NavigateVisibleFrame(true);
-                            //обозначение, что не гость
-                            App.Guest = false;
-                            //записываем какой ползователь входит
-                            App.ThisUser = User;
-                            //вход в систему
-                            Navigations.NavigateLeftMenu(new UserLeftMenuPage());
-                            //обнуление ошибок
-                            error = true;
+                            //проверка на должность входящего пользователя
+                            if(User.PositionId == 1)
+                            {
+                                //отображение и сокрытие фреймов
+                                Navigations.NavigateVisibleFrame(true);
+                                //обозначение, что не гость
+                                App.Guest = false;
+                                //записываем какой ползователь входит
+                                App.ThisUser = User;
+                                //вход в систему как посетитель
+                                Navigations.NavigateLeftMenu(new UserLeftMenuPage());
+                                //обнуление ошибок
+                                error = true;
+                            }
+                            else if (User.PositionId == 2)
+                            {
+                                //отображение и сокрытие фреймов
+                                Navigations.NavigateVisibleFrame(true);
+                                //обозначение, что не гость
+                                App.Guest = false;
+                                //записываем какой ползователь входит
+                                App.ThisUser = User;
+                                //вход в систему как тренер
+                                Navigations.NavigateLeftMenu(new UserLeftMenuPage());
+                                //обнуление ошибок
+                                error = true;
+                            }
+                            else if (User.PositionId == 3)
+                            {
+                                //отображение и сокрытие фреймов
+                                Navigations.NavigateVisibleFrame(true);
+                                //обозначение, что не гость
+                                App.Guest = false;
+                                //записываем какой ползователь входит
+                                App.ThisUser = User;
+                                //вход в систему как конюх
+                                Navigations.NavigateLeftMenu(new UserLeftMenuPage());
+                                //обнуление ошибок
+                                error = true;
+                            }
+                            else
+                            {
+                                //если должность по какой-то причине не опознана
+                                MessageBox.Show("Произошла какая-то ошибка, пожалуйста, попробуйте еще раз.");
+                            }
                         }
                         //если у выбраного пользователя не совпадает пароль
                         else

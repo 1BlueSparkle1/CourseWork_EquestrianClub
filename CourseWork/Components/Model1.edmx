@@ -12,6 +12,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -32,6 +39,7 @@
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
           <Property Name="GenderId" Type="int" Nullable="false" />
           <Property Name="DateOfBirthday" Type="date" />
+          <Property Name="PositionId" Type="int" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -47,12 +55,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Users_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище CourseWorkModelContainer">
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Users_Gender" Association="Self.FK_Users_Gender">
             <End Role="Gender" EntitySet="Gender" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Position" Association="Self.FK_Users_Position">
+            <End Role="Position" EntitySet="Position" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
@@ -91,6 +116,8 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Users_Gender" FromRole="Users" ToRole="Gender" />
           <Property Name="DateOfBirthday" Type="DateTime" Precision="0" />
+          <Property Name="PositionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="CourseWorkModel.FK_Users_Position" FromRole="Users" ToRole="Position" />
         </EntityType>
         <Association Name="FK_Users_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
@@ -112,7 +139,32 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="Position" EntityType="CourseWorkModel.Position" />
+          <AssociationSet Name="FK_Users_Position" Association="CourseWorkModel.FK_Users_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="CourseWorkModel.FK_Users_Position" FromRole="Position" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_Users_Position">
+          <End Type="CourseWorkModel.Position" Role="Position" Multiplicity="1" />
+          <End Type="CourseWorkModel.Users" Role="Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -141,6 +193,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="CourseWorkModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
                 <ScalarProperty Name="DateOfBirthday" ColumnName="DateOfBirthday" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -149,6 +202,14 @@
                 <ScalarProperty Name="GenderId" ColumnName="GenderId" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="CourseWorkModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
