@@ -9,7 +9,10 @@
       Title="TrainingTopMenuPage">
 
     <Grid>
+        <!--панель всех элементов меню-->
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,30,0" Background="White">
+
+            <!--кнопка тренировки детей на пони-->
             <Button Margin="20 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -19,6 +22,8 @@
                 </Button.Resources>
                 <TextBlock FontSize="15">Для детей на пони</TextBlock>
             </Button>
+
+            <!--кнопка тренировки для начинающих-->
             <Button Margin="20 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -28,6 +33,8 @@
                 </Button.Resources>
                 <TextBlock FontSize="15">Для начинающих</TextBlock>
             </Button>
+
+            <!--кнопка тренировки по конкуру-->
             <Button Margin="20 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -37,6 +44,8 @@
                 </Button.Resources>
                 <TextBlock FontSize="15">По конкуру</TextBlock>
             </Button>
+
+            <!--кнопка тренировки по выездке-->
             <Button Margin="20 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -46,6 +55,7 @@
                 </Button.Resources>
                 <TextBlock FontSize="15">По выездке</TextBlock>
             </Button>
+            
         </StackPanel>
     </Grid>
 </Page>

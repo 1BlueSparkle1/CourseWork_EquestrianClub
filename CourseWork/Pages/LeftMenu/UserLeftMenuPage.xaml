@@ -88,8 +88,8 @@
                 
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0"
-                Margin="5 0">
+                Foreground="White" Padding="0" x:Name="InfoHorseBtn"
+                Margin="5 0" Click="InfoHorseBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -100,8 +100,8 @@
                 
                 <Button HorizontalContentAlignment="Left"  
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0"
-                Margin="5 0">
+                Foreground="White" Padding="0" x:Name="ExcursionBtn"
+                Margin="5 0" Click="ExcursionBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -119,8 +119,8 @@
                 
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0"
-                Margin="5 0">
+                Foreground="White" Padding="0" x:Name="InfoRecreationBtn"
+                Margin="5 0" Click="InfoRecreationBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -138,8 +138,8 @@
 
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0"
-                Margin="5 0">
+                Foreground="White" Padding="0" x:Name="OfferServiceBtn"
+                Margin="5 0" Click="OfferServiceBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
@@ -150,8 +150,8 @@
 
                 <Button HorizontalContentAlignment="Left" 
                 Background="#00000000" BorderBrush="#00000000"
-                Foreground="White" Padding="0"
-                Margin="5 0">
+                Foreground="White" Padding="0" x:Name="TechnicalSupportBtn"
+                Margin="5 0" Click="TechnicalSupportBtn_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>

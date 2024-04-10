@@ -9,7 +9,10 @@
       Title="StrollsTopMenuPage">
 
     <Grid>
+        <!--панель всех элементов меню-->
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,30,0" Background="White">
+
+            <!--кнопка пргулки по лесопарку-->
             <Button Margin="16 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -19,6 +22,8 @@
                 </Button.Resources>
                 <TextBlock FontSize="15">По лесопарку</TextBlock>
             </Button>
+
+            <!--кнопка прогулки в поле-->
             <Button Margin="16 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -28,6 +33,8 @@
                 </Button.Resources>
                 <TextBlock FontSize="15">В поля (продвинутые)</TextBlock>
             </Button>
+
+            <!--кнопка прогулки вокруг конюшни-->
             <Button Margin="16 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -37,6 +44,8 @@
                 </Button.Resources>
                 <TextBlock FontSize="15">Вокруг конюшни</TextBlock>
             </Button>
+
+            <!--кнопка часовой прогулки на платцу-->
             <Button Margin="16 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -46,6 +55,7 @@
                 </Button.Resources>
                 <TextBlock FontSize="15">Часовая на платцу</TextBlock>
             </Button>
+            
         </StackPanel>
     </Grid>
 </Page>

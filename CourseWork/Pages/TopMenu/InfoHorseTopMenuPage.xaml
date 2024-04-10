@@ -1,4 +1,4 @@
-﻿<Page x:Class="CourseWork.Pages.TopMenu.OtherTopMenuPage"
+﻿<Page x:Class="CourseWork.Pages.TopMenu.InfoHorseTopMenuPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,13 +6,13 @@
       xmlns:local="clr-namespace:CourseWork.Pages.TopMenu"
       mc:Ignorable="d" 
       d:DesignHeight="80" d:DesignWidth="750"
-      Title="OtherTopMenuPage">
+      Title="InfoHorseTopMenuPage">
 
     <Grid>
         <!--панель всех элементов меню-->
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,30,0" Background="White">
 
-            <!--кнопка фотоссесии-->
+            <!--кнопка общей информации-->
             <Button Margin="20 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -20,10 +20,10 @@
                         <Setter Property="CornerRadius" Value="5"></Setter>
                     </Style>
                 </Button.Resources>
-                <TextBlock FontSize="15">Фотосессия</TextBlock>
+                <TextBlock FontSize="15">Общая информация</TextBlock>
             </Button>
 
-            <!--кнопка аренды лошади-->
+            <!--кнопка расположения на конюшне-->
             <Button Margin="20 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -31,10 +31,10 @@
                         <Setter Property="CornerRadius" Value="5"></Setter>
                     </Style>
                 </Button.Resources>
-                <TextBlock FontSize="15">Аренда лошади</TextBlock>
+                <TextBlock FontSize="15">Расположение в конюшне</TextBlock>
             </Button>
 
-            <!--кнопка постоя лошади-->
+            <!--кнопка наград и соревнований-->
             <Button Margin="20 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
@@ -42,18 +42,7 @@
                         <Setter Property="CornerRadius" Value="5"></Setter>
                     </Style>
                 </Button.Resources>
-                <TextBlock FontSize="15">Постой лошади</TextBlock>
-            </Button>
-
-            <!--кнопка заказа выездной кареты-->
-            <Button Margin="20 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"></Setter>
-                    </Style>
-                </Button.Resources>
-                <TextBlock FontSize="15">Выездная карета</TextBlock>
+                <TextBlock FontSize="15">Награды и соревнования</TextBlock>
             </Button>
             
         </StackPanel>

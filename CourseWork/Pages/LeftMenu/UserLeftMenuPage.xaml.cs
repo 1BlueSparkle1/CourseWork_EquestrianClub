@@ -58,25 +58,68 @@ namespace CourseWork.Pages.LeftMenu
             Navigations.NavigateCenterWindow(new ProfilePage());
         }
 
+        //кнопка раздела тренировки
         private void TrainingBtn_Click(object sender, RoutedEventArgs e)
         {
+            //открытие меню раздела тренировки
             Navigations.NavigateTopMenu(new TrainingTopMenuPage());
         }
 
+        //кнопка раздела прогулки
         private void StrollsBtn_Click(object sender, RoutedEventArgs e)
         {
+            //открытие меню раздела прогулки
             Navigations.NavigateTopMenu(new StrollsTopMenuPage());
         }
 
+        //кнопка раздела другое
         private void OtherBtn_Click(object sender, RoutedEventArgs e)
         {
+            //открытие меню раздела другое
             Navigations.NavigateTopMenu(new OtherTopMenuPage());
         }
 
+        //кнопка главной страницы
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
+            //возвращение к главной странице
             Navigations.NavigateTopMenu(new TestPage());
             Navigations.NavigateCenterWindow(new TestPage());
+        }
+
+        //кнопка раздела информации о лошадях
+        private void InfoHorseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //открытие меню раздела информации о лошадях
+            Navigations.NavigateTopMenu(new InfoHorseTopMenuPage());
+        }
+
+        //кнопка раздела экскурсии
+        private void ExcursionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //открытие окна экскурсий
+            Navigations.NavigateTopMenu(new TestPage());
+        }
+
+        //кнопка раздела информации о зонах отдыха
+        private void InfoRecreationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //открытие окна зон отдыха
+            Navigations.NavigateTopMenu(new TestPage());
+        }
+
+        //кнопка раздела предложений услуг
+        private void OfferServiceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //открытие окна заявки на услугу
+            Navigations.NavigateTopMenu(new TestPage());
+        }
+
+        //кнопка раздела тех поддержки
+        private void TechnicalSupportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //открытие окна тех поддержки
+            Navigations.NavigateTopMenu(new TestPage());
         }
     }
 }
