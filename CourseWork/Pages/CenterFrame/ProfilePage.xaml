@@ -9,62 +9,74 @@
       Title="ProfilePage">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             
-            <!--Title-->
-            <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5 5">Профиль</TextBlock>
+            <StackPanel>
 
-            <!--Все данные профиля-->
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <!--Title-->
+                <TextBlock Foreground="#FF8D551C" FontWeight="ExtraBold" 
+                FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                Margin="5 5">Профиль</TextBlock>
 
-                <!--Фамилия-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock>Фамилия</TextBlock>
-                    <TextBox x:Name="SurnameTb" MaxLength="50" IsEnabled="False" Text="{Binding Surname}"></TextBox>
+                <!--Все данные профиля-->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <!--Фамилия-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock>Фамилия</TextBlock>
+                        <TextBox x:Name="SurnameTb" MaxLength="50" IsEnabled="False" Text="{Binding Surname}"></TextBox>
+                    </StackPanel>
+
+                    <!--Имя-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock>Имя</TextBlock>
+                        <TextBox x:Name="NameTb" MaxLength="50" IsEnabled="False" Text="{Binding FirstName}"></TextBox>
+                    </StackPanel>
+
+                    <!--Отчество-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock>Отчество</TextBlock>
+                        <TextBox x:Name="PatronymicTb" MaxLength="50" IsEnabled="False" Text="{Binding Patronymic}"></TextBox>
+                    </StackPanel>
+
+                    <!--Пол-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center">Пол</TextBlock>
+                        <ComboBox x:Name="GenderCb" IsEnabled="False" Text="{Binding Gender.Title}">
+                            <ComboBoxItem>Неопределенный</ComboBoxItem>
+                            <ComboBoxItem>Мужской</ComboBoxItem>
+                            <ComboBoxItem>Женский</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!--Дата рождения-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center">Дата рождения</TextBlock>
+                        <DatePicker x:Name="DateOfBirthdayDp" IsEnabled="False" Text="{Binding DateOfBirthday}"></DatePicker>
+                    </StackPanel>
+
+                    <!--Телефон-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock>Телефон</TextBlock>
+                        <TextBox x:Name="PhoneTb" MaxLength="11" IsEnabled="False" Text="{Binding Phone}" PreviewTextInput="PhoneTb_PreviewTextInput"></TextBox>
+                    </StackPanel>
+
+                    <!--Пароль-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock>Пароль</TextBlock>
+                        <PasswordBox x:Name="PasswordTb" MaxLength="50" IsEnabled="False"></PasswordBox>
+                    </StackPanel>
+
+                    
+
                 </StackPanel>
 
-                <!--Имя-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock>Имя</TextBlock>
-                    <TextBox x:Name="NameTb" MaxLength="50" IsEnabled="False" Text="{Binding FirstName}"></TextBox>
-                </StackPanel>
+            </StackPanel>
 
-                <!--Отчество-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock>Отчество</TextBlock>
-                    <TextBox x:Name="PatronymicTb" MaxLength="50" IsEnabled="False" Text="{Binding Patronymic}"></TextBox>
-                </StackPanel>
-
-                <!--Пол-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock VerticalAlignment="Center">Пол</TextBlock>
-                    <ComboBox x:Name="GenderCb" IsEnabled="False" Text="{Binding Gender.Title}">
-                        <ComboBoxItem>Неопределенный</ComboBoxItem>
-                        <ComboBoxItem>Мужской</ComboBoxItem>
-                        <ComboBoxItem>Женский</ComboBoxItem>
-                    </ComboBox>
-                </StackPanel>
-
-                <!--Дата рождения-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock>Отчество</TextBlock>
-                    <DatePicker x:Name="DateOfBirthdayDp" IsEnabled="False" Text="{Binding DateOfBirthday}"></DatePicker>
-                </StackPanel>
-
-                <!--Телефон-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock>Телефон</TextBlock>
-                    <TextBox x:Name="PhoneTb" MaxLength="11" IsEnabled="False" Text="{Binding Phone}" PreviewTextInput="PhoneTb_PreviewTextInput"></TextBox>
-                </StackPanel>
-
-                <!--Пароль-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock>Пароль</TextBlock>
-                    <PasswordBox x:Name="PasswordTb" MaxLength="50" IsEnabled="False"></PasswordBox>
-                </StackPanel>
+            <StackPanel Margin="30">
 
                 <!--Кнопки-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
                     <!--Сохранения-->
                     <Button x:Name="SaveBtn" Padding="36 5" 
@@ -89,8 +101,19 @@
                         </Button.Resources>
                         Изменить
                     </Button>
-                    
+
                 </StackPanel>
+
+                <!--Все записи-->
+                <Button x:Name="AllServiceBtn" Padding="36 5"
+                Background="#FF8D551C" Foreground="White">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    Все записи
+                </Button>
                 
             </StackPanel>
             

@@ -112,7 +112,7 @@
             </StackPanel>
 
             <!--оглавление группы кнопок-->
-            <TextBlock Foreground="#FF8D551C">Зоны отдыха</TextBlock>
+            <TextBlock Foreground="#FF8D551C">Другое</TextBlock>
 
             <!--кнопка для перехода в разделы-->
             <StackPanel Margin="20,0,0,0">
@@ -126,7 +126,7 @@
                             <Setter Property="CornerRadius" Value="5"></Setter>
                         </Style>
                     </Button.Resources>
-                    <TextBlock FontSize="15">Информация</TextBlock>
+                    <TextBlock FontSize="15">Доп. информация</TextBlock>
                 </Button>
             </StackPanel>
 

@@ -88,11 +88,20 @@
     <Compile Include="Components\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Components\UserControls\HomeUserControl.xaml.cs">
+      <DependentUpon>HomeUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CenterFrame\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CenterFrame\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CenterFrame\SignServicePage.xaml.cs">
+      <DependentUpon>SignServicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LeftMenu\UserLeftMenuPage.xaml.cs">
       <DependentUpon>UserLeftMenuPage.xaml</DependentUpon>
@@ -104,6 +113,10 @@
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\Navigations.cs" />
+    <Page Include="Components\UserControls\HomeUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -120,7 +133,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CenterFrame\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CenterFrame\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CenterFrame\SignServicePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,7 +161,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\TopMenu\InfoRecreationTopMenuPage.xaml">
+    <Page Include="Pages\TopMenu\DopInfoTopMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,8 +185,8 @@
     <Compile Include="Pages\TopMenu\InfoHorseTopMenuPage.xaml.cs">
       <DependentUpon>InfoHorseTopMenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TopMenu\InfoRecreationTopMenuPage.xaml.cs">
-      <DependentUpon>InfoRecreationTopMenuPage.xaml</DependentUpon>
+    <Compile Include="Pages\TopMenu\DopInfoTopMenuPage.xaml.cs">
+      <DependentUpon>DopInfoTopMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TopMenu\OtherTopMenuPage.xaml.cs">
       <DependentUpon>OtherTopMenuPage.xaml</DependentUpon>
@@ -224,6 +245,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\LeafEnd.png" />
+    <Resource Include="Resources\Leaf.png" />
+    <Resource Include="Resources\FlowerButtom.png" />
+    <Resource Include="Resources\FlowerTop.png" />
     <Resource Include="Resources\Bell.png" />
     <Resource Include="Resources\BellRing.png" />
   </ItemGroup>

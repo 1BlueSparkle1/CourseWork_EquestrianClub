@@ -18,9 +18,9 @@ namespace CourseWork.Pages.TopMenu
     /// <summary>
     /// Логика взаимодействия для InfoRecreationTopMenuPage.xaml
     /// </summary>
-    public partial class InfoRecreationTopMenuPage : Page
+    public partial class DopInfoTopMenuPage : Page
     {
-        public InfoRecreationTopMenuPage()
+        public DopInfoTopMenuPage()
         {
             InitializeComponent();
         }

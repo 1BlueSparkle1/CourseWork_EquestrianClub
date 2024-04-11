@@ -84,7 +84,7 @@ namespace CourseWork.Pages.LeftMenu
         {
             //возвращение к главной странице
             Navigations.NavigateTopMenu(new TestPage());
-            Navigations.NavigateCenterWindow(new TestPage());
+            Navigations.NavigateCenterWindow(new HomePage());
         }
 
         //кнопка раздела информации о лошадях
@@ -99,13 +99,14 @@ namespace CourseWork.Pages.LeftMenu
         {
             //открытие окна экскурсий
             Navigations.NavigateTopMenu(new TestPage());
+            Navigations.NavigateCenterWindow(new TestPage());
         }
 
         //кнопка раздела информации о зонах отдыха
         private void InfoRecreationBtn_Click(object sender, RoutedEventArgs e)
         {
             //открытие окна зон отдыха
-            Navigations.NavigateTopMenu(new InfoRecreationTopMenuPage());
+            Navigations.NavigateTopMenu(new DopInfoTopMenuPage());
         }
 
         //кнопка раздела предложений услуг
@@ -113,6 +114,7 @@ namespace CourseWork.Pages.LeftMenu
         {
             //открытие окна заявки на услугу
             Navigations.NavigateTopMenu(new TestPage());
+            Navigations.NavigateCenterWindow(new TestPage());
         }
 
         //кнопка раздела тех поддержки
@@ -120,6 +122,7 @@ namespace CourseWork.Pages.LeftMenu
         {
             //открытие окна тех поддержки
             Navigations.NavigateTopMenu(new TestPage());
+            Navigations.NavigateCenterWindow(new TestPage());
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CourseWork.Components;
+using CourseWork.Pages.CenterFrame;
 using CourseWork.Pages.LeftMenu;
 using CourseWork.Сomponents;
 using System;
@@ -113,6 +114,7 @@ namespace CourseWork.Pages
                                 App.ThisUser = User;
                                 //вход в систему как посетитель
                                 Navigations.NavigateLeftMenu(new UserLeftMenuPage());
+                                Navigations.NavigateCenterWindow(new HomePage());
                                 //обнуление ошибок
                                 error = true;
                             }
@@ -176,7 +178,7 @@ namespace CourseWork.Pages
             //объявление, что гость
             App.Guest = true;
             //вход в систему
-            Navigations.NavigateCenterWindow(new TestPage());
+            Navigations.NavigateCenterWindow(new HomePage());
             Navigations.NavigateLeftMenu(new UserLeftMenuPage());
         }
 

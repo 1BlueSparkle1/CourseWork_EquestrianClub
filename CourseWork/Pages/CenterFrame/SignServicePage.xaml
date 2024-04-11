@@ -1,0 +1,36 @@
+﻿<Page x:Class="CourseWork.Pages.CenterFrame.SignServicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseWork.Pages.CenterFrame"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="750"
+      Title="SignServicePage">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock x:Name="DescriptionTb" Margin="30 5" TextWrapping="Wrap"></TextBlock>
+            <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center">
+                <TextBlock Foreground="#FF8D551C" HorizontalAlignment="Center" FontWeight="Black">Тренировка на пони для детей</TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock VerticalAlignment="Center">Кто записывается на тренировку?</TextBlock>
+                    <ComboBox>
+                        <ComboBoxItem>Я</ComboBoxItem>
+                        <ComboBoxItem>Ребенок</ComboBoxItem>
+                        <ComboBoxItem>Другой человек</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <TextBlock FontSize="10">
+                    На конюшне вы будете нести ответственность 
+                    за ребенка, которого вы записываете!
+                </TextBlock>
+                <StackPanel>
+                    <TextBlock TextAlignment="Center" TextWrapping="Wrap">При записи с другого аккаунта мы не сможем определить уровень ваших знаний, пожалуйста, зарегистрируйтесь от вашего лица!</TextBlock>
+                    <Button HorizontalAlignment="Center">Зарегистрироваться</Button>
+                </StackPanel>
+                
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
