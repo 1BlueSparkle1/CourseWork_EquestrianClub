@@ -105,7 +105,7 @@ namespace CourseWork.Pages.LeftMenu
         private void InfoRecreationBtn_Click(object sender, RoutedEventArgs e)
         {
             //открытие окна зон отдыха
-            Navigations.NavigateTopMenu(new TestPage());
+            Navigations.NavigateTopMenu(new InfoRecreationTopMenuPage());
         }
 
         //кнопка раздела предложений услуг

@@ -140,6 +140,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\TopMenu\InfoRecreationTopMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\TopMenu\OtherTopMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +163,9 @@
     </Compile>
     <Compile Include="Pages\TopMenu\InfoHorseTopMenuPage.xaml.cs">
       <DependentUpon>InfoHorseTopMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TopMenu\InfoRecreationTopMenuPage.xaml.cs">
+      <DependentUpon>InfoRecreationTopMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TopMenu\OtherTopMenuPage.xaml.cs">
       <DependentUpon>OtherTopMenuPage.xaml</DependentUpon>
@@ -202,9 +209,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
@@ -219,6 +224,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Bell.png" />
+    <Resource Include="Resources\BellRing.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

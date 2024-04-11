@@ -27,9 +27,10 @@ namespace CourseWork
             InitializeComponent();
             //объявление что MainWindow на страницах это это окно
             Navigations.mainWindow = this;
-            //Сокрытие бокового и верхнего меню
+            //Сокрытие бокового и верхнего меню и иконки уведомлений
             LeftMenuFrame.Visibility = Visibility.Collapsed;
             TopMenuFrame.Visibility = Visibility.Collapsed;
+            NotificationsBtn.Visibility = Visibility.Collapsed;
             //Открытие страницы авторизации
             AllWindowFrame.Navigate(new AuthorizationPage());
         }

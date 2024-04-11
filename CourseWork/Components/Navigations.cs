@@ -47,9 +47,10 @@ namespace CourseWork.Сomponents
             //если их надо отобразить
             if (visible)
             {
-                //отображаются верхнее и левое меню
+                //отображаются верхнее и левое меню и иконку уведомлений
                 mainWindow.LeftMenuFrame.Visibility = Visibility.Visible;
                 mainWindow.TopMenuFrame.Visibility = Visibility.Visible;
+                mainWindow.NotificationsBtn.Visibility = Visibility.Visible;
                 //скрывается общий фрейм
                 mainWindow.AllWindowFrame.Visibility = Visibility.Collapsed;
                 //центральная область принимает пустую страничку
@@ -58,9 +59,10 @@ namespace CourseWork.Сomponents
             //если надо скрыть
             else
             {
-                //скрывается верхнее и левое меню
+                //скрывается верхнее и левое меню и иконку уведомлений
                 mainWindow.LeftMenuFrame.Visibility = Visibility.Collapsed;
                 mainWindow.TopMenuFrame.Visibility = Visibility.Collapsed;
+                mainWindow.NotificationsBtn.Visibility = Visibility.Collapsed;
                 //отображается общий фрейм
                 mainWindow.AllWindowFrame.Visibility = Visibility.Visible;
                 //центр и верх принимают пустую страничку

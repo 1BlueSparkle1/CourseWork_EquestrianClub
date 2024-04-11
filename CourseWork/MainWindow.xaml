@@ -31,6 +31,14 @@
         <Frame x:Name="TopMenuFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Background="#FFD1AE8A">
             
         </Frame>
+        <Button x:Name="NotificationsBtn" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Background="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"></Setter>
+                </Style>
+            </Button.Resources>
+            <Image Width="30" Source="/Resources/Bell.png"></Image>
+        </Button>
 
         <!--Основной экран информации-->
         <Frame x:Name="CenterWindowFrame" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1">

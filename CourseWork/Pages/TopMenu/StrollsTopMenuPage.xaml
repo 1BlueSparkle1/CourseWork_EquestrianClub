@@ -10,10 +10,10 @@
 
     <Grid>
         <!--панель всех элементов меню-->
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,30,0" Background="White">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,60,0" Background="White">
 
             <!--кнопка пргулки по лесопарку-->
-            <Button Margin="16 5" Background="{x:Null}" 
+            <Button Margin="13 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -24,7 +24,7 @@
             </Button>
 
             <!--кнопка прогулки в поле-->
-            <Button Margin="16 5" Background="{x:Null}" 
+            <Button Margin="13 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -35,7 +35,7 @@
             </Button>
 
             <!--кнопка прогулки вокруг конюшни-->
-            <Button Margin="16 5" Background="{x:Null}" 
+            <Button Margin="13 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -46,7 +46,7 @@
             </Button>
 
             <!--кнопка часовой прогулки на платцу-->
-            <Button Margin="16 5" Background="{x:Null}" 
+            <Button Margin="13 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C">
                 <Button.Resources>
                     <Style TargetType="Border">

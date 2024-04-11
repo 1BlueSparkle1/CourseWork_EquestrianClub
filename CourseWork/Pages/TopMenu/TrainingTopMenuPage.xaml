@@ -10,7 +10,7 @@
 
     <Grid>
         <!--панель всех элементов меню-->
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,30,0" Background="White">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,60,0" Background="White">
 
             <!--кнопка тренировки детей на пони-->
             <Button Margin="20 5" Background="{x:Null}" 
