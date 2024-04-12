@@ -30,6 +30,9 @@ namespace CourseWork.Pages.CenterFrame
             PasswordTb.Password = App.ThisUser.Password;
             //ограничение вводимого возраста
             DateOfBirthdayDp.DisplayDateEnd = DateTime.Now.AddYears(-14);
+            LevelTrainingCb.ItemsSource = App.db.LevelTraining.ToList();
+            LevelTrainingCb.DisplayMemberPath = "Title";
+            LevelTrainingCb.Text = App.ThisUser.LevelTraining.Title;
         }
 
         //кнопка изменить
@@ -43,6 +46,7 @@ namespace CourseWork.Pages.CenterFrame
             DateOfBirthdayDp.IsEnabled = true;
             PhoneTb.IsEnabled = true;
             PasswordTb.IsEnabled = true;
+            LevelTrainingCb.IsEnabled = true;
             //отображаем кнопку сохранить
             SaveBtn.Visibility = Visibility.Visible;
             //скрываем кнопку изменить
@@ -69,6 +73,38 @@ namespace CourseWork.Pages.CenterFrame
                 App.ThisUser.GenderId = 2;
             }
             App.ThisUser.DateOfBirthday = DateOfBirthdayDp.DisplayDate;
+            if (LevelTrainingCb.SelectedIndex == 0)
+            {
+                App.ThisUser.LevelTrainingId = 1;
+            }
+            else if (LevelTrainingCb.SelectedIndex == 1)
+            {
+                App.ThisUser.LevelTrainingId = 2;
+            }
+            else if (LevelTrainingCb.SelectedIndex == 2)
+            {
+                App.ThisUser.LevelTrainingId = 3;
+            }
+            else if (LevelTrainingCb.SelectedIndex == 3)
+            {
+                App.ThisUser.LevelTrainingId = 4;
+            }
+            else if (LevelTrainingCb.SelectedIndex == 4)
+            {
+                App.ThisUser.LevelTrainingId = 5;
+            }
+            else if (LevelTrainingCb.SelectedIndex == 5)
+            {
+                App.ThisUser.LevelTrainingId = 6;
+            }
+            else if (LevelTrainingCb.SelectedIndex == 6)
+            {
+                App.ThisUser.LevelTrainingId = 7;
+            }
+            else if (LevelTrainingCb.SelectedIndex == 7)
+            {
+                App.ThisUser.LevelTrainingId = 8;
+            }
             App.ThisUser.Phone = PhoneTb.Text;
             App.ThisUser.Password = PasswordTb.Password;
             //сохранения этих данных в базу
@@ -81,6 +117,7 @@ namespace CourseWork.Pages.CenterFrame
             DateOfBirthdayDp.IsEnabled = false;
             PhoneTb.IsEnabled = false;
             PasswordTb.IsEnabled = false;
+            LevelTrainingCb.IsEnabled = false;
             //скрываем кнопку сохранить
             SaveBtn.Visibility = Visibility.Collapsed;
             //отображаем кнопку редактировать

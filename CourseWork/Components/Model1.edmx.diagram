@@ -11,6 +11,8 @@
         <AssociationConnector Association="CourseWorkModel.FK_Users_Gender" ManuallyRouted="false" />
         <EntityTypeShape EntityType="CourseWorkModel.Position" Width="1.5" PointX="0.75" PointY="7.75" />
         <AssociationConnector Association="CourseWorkModel.FK_Users_Position" />
+        <EntityTypeShape EntityType="CourseWorkModel.LevelTraining" Width="1.5" PointX="0.75" PointY="11" />
+        <AssociationConnector Association="CourseWorkModel.FK_Users_LevelTraining" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

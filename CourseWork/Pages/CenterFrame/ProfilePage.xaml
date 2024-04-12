@@ -55,6 +55,12 @@
                         <DatePicker x:Name="DateOfBirthdayDp" IsEnabled="False" Text="{Binding DateOfBirthday}"></DatePicker>
                     </StackPanel>
 
+                    <!--Уровень подготовки-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center">Уровень подготовки</TextBlock>
+                        <ComboBox x:Name="LevelTrainingCb" IsEnabled="False"></ComboBox>
+                    </StackPanel>
+
                     <!--Телефон-->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock>Телефон</TextBlock>

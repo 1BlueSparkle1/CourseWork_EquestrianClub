@@ -32,6 +32,8 @@ namespace CourseWork.Pages
             GenderCb.Text = "Неопределенный";
             //ограничение вводимого возраста
             DateOfBirthTb.DisplayDateEnd = DateTime.Now.AddYears(-14);
+            LevelTrainingCb.ItemsSource = App.db.LevelTraining.ToList();
+            LevelTrainingCb.DisplayMemberPath = "Title";
         }
 
         //кнопка перехода на страницу входа
@@ -95,6 +97,38 @@ namespace CourseWork.Pages
                 }
                 user.DateOfBirthday = DateOfBirthTb.DisplayDate;
                 user.PositionId = 1;
+                if (LevelTrainingCb.SelectedIndex == 0)
+                {
+                    user.LevelTrainingId = 1;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 1)
+                {
+                    user.LevelTrainingId = 2;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 2)
+                {
+                    user.LevelTrainingId = 3;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 3)
+                {
+                    user.LevelTrainingId = 4;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 4)
+                {
+                    user.LevelTrainingId = 5;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 5)
+                {
+                    user.LevelTrainingId = 6;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 6)
+                {
+                    user.LevelTrainingId = 7;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 7)
+                {
+                    user.LevelTrainingId = 8;
+                }
                 user.Phone = PhoneTb.Text;
                 user.Password = PasswordPb.Password;
                 //записываем данные с переменной в бд

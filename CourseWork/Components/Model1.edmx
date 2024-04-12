@@ -12,6 +12,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="LevelTraining">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="Id" />
@@ -40,6 +47,7 @@
           <Property Name="GenderId" Type="int" Nullable="false" />
           <Property Name="DateOfBirthday" Type="date" />
           <Property Name="PositionId" Type="int" Nullable="false" />
+          <Property Name="LevelTrainingId" Type="int" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -52,6 +60,18 @@
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_LevelTraining">
+          <End Role="LevelTraining" Type="Self.LevelTraining" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevelTraining">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="LevelTrainingId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -69,11 +89,16 @@
         </Association>
         <EntityContainer Name="Хранилище CourseWorkModelContainer">
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LevelTraining" EntityType="Self.LevelTraining" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Users_Gender" Association="Self.FK_Users_Gender">
             <End Role="Gender" EntitySet="Gender" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_LevelTraining" Association="Self.FK_Users_LevelTraining">
+            <End Role="LevelTraining" EntitySet="LevelTraining" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Position" Association="Self.FK_Users_Position">
@@ -118,6 +143,8 @@
           <Property Name="DateOfBirthday" Type="DateTime" Precision="0" />
           <Property Name="PositionId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Position" Relationship="CourseWorkModel.FK_Users_Position" FromRole="Users" ToRole="Position" />
+          <Property Name="LevelTrainingId" Type="Int32" />
+          <NavigationProperty Name="LevelTraining" Relationship="CourseWorkModel.FK_Users_LevelTraining" FromRole="Users" ToRole="LevelTraining" />
         </EntityType>
         <Association Name="FK_Users_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
@@ -144,6 +171,11 @@
             <End Role="Position" EntitySet="Position" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="LevelTraining" EntityType="CourseWorkModel.LevelTraining" />
+          <AssociationSet Name="FK_Users_LevelTraining" Association="CourseWorkModel.FK_Users_LevelTraining">
+            <End Role="LevelTraining" EntitySet="LevelTraining" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Position">
           <Key>
@@ -162,6 +194,26 @@
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LevelTraining">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="CourseWorkModel.FK_Users_LevelTraining" FromRole="LevelTraining" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_Users_LevelTraining">
+          <End Type="CourseWorkModel.LevelTraining" Role="LevelTraining" Multiplicity="0..1" />
+          <End Type="CourseWorkModel.Users" Role="Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevelTraining">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="LevelTrainingId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -193,6 +245,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="CourseWorkModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="LevelTrainingId" ColumnName="LevelTrainingId" />
                 <ScalarProperty Name="PositionId" ColumnName="PositionId" />
                 <ScalarProperty Name="DateOfBirthday" ColumnName="DateOfBirthday" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -208,6 +261,14 @@
           <EntitySetMapping Name="Position">
             <EntityTypeMapping TypeName="CourseWorkModel.Position">
               <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LevelTraining">
+            <EntityTypeMapping TypeName="CourseWorkModel.LevelTraining">
+              <MappingFragment StoreEntitySet="LevelTraining">
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

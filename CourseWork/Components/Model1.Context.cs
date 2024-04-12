@@ -29,5 +29,6 @@ namespace CourseWork.Components
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Position> Position { get; set; }
+        public virtual DbSet<LevelTraining> LevelTraining { get; set; }
     }
 }
