@@ -30,5 +30,7 @@ namespace CourseWork.Components
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<LevelTraining> LevelTraining { get; set; }
+        public virtual DbSet<Horses> Horses { get; set; }
+        public virtual DbSet<HorseGender> HorseGender { get; set; }
     }
 }

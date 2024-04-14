@@ -53,7 +53,7 @@
                         <Setter Property="CornerRadius" Value="5"></Setter>
                     </Style>
                 </Button.Resources>
-                <TextBlock FontSize="15">Выездная карета</TextBlock>
+                <TextBlock FontSize="15">Соревнования</TextBlock>
             </Button>
             
         </StackPanel>

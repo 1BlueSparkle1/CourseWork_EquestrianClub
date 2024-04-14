@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CourseWork.Pages.CenterFrame;
+using CourseWork.Сomponents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,21 @@ namespace CourseWork.Pages.TopMenu
         public InfoHorseTopMenuPage()
         {
             InitializeComponent();
+        }
+
+        private void AllInfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigations.NavigateCenterWindow(new MainInfoHorsePage());
+        }
+
+        private void LocationInStableBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PrizeAndCompetiBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

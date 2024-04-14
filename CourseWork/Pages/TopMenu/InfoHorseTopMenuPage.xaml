@@ -14,7 +14,8 @@
 
             <!--кнопка общей информации-->
             <Button Margin="20 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="AllInfoBtn" Click="AllInfoBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -25,7 +26,8 @@
 
             <!--кнопка расположения на конюшне-->
             <Button Margin="20 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="LocationInStableBtn" Click="LocationInStableBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -36,7 +38,8 @@
 
             <!--кнопка наград и соревнований-->
             <Button Margin="20 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="PrizeAndCompetiBtn" Click="PrizeAndCompetiBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>

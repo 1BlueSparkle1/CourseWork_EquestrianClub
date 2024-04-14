@@ -12,19 +12,42 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="HorseGender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Horses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Moniker" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirthday" Type="date" Nullable="false" />
+          <Property Name="HorseGenderId" Type="int" />
+          <Property Name="StallId" Type="int" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="LevelTrainingId" Type="int" />
+          <Property Name="MotherId" Type="int" />
+          <Property Name="FatherId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ImageSourse" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="LevelTraining">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -51,6 +74,54 @@
           <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Horses_HorseGender">
+          <End Role="HorseGender" Type="Self.HorseGender" Multiplicity="0..1" />
+          <End Role="Horses" Type="Self.Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HorseGender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="HorseGenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Horses_Horses">
+          <End Role="Horses" Type="Self.Horses" Multiplicity="0..1" />
+          <End Role="Horses1" Type="Self.Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses1">
+              <PropertyRef Name="MotherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Horses_Horses1">
+          <End Role="Horses" Type="Self.Horses" Multiplicity="0..1" />
+          <End Role="Horses1" Type="Self.Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses1">
+              <PropertyRef Name="FatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Horses_LevelTraining">
+          <End Role="LevelTraining" Type="Self.LevelTraining" Multiplicity="0..1" />
+          <End Role="Horses" Type="Self.Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevelTraining">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="LevelTrainingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Users_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -89,10 +160,28 @@
         </Association>
         <EntityContainer Name="Хранилище CourseWorkModelContainer">
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HorseGender" EntityType="Self.HorseGender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horses" EntityType="Self.Horses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LevelTraining" EntityType="Self.LevelTraining" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Horses_HorseGender" Association="Self.FK_Horses_HorseGender">
+            <End Role="HorseGender" EntitySet="HorseGender" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horses_Horses" Association="Self.FK_Horses_Horses">
+            <End Role="Horses" EntitySet="Horses" />
+            <End Role="Horses1" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horses_Horses1" Association="Self.FK_Horses_Horses1">
+            <End Role="Horses" EntitySet="Horses" />
+            <End Role="Horses1" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horses_LevelTraining" Association="Self.FK_Horses_LevelTraining">
+            <End Role="LevelTraining" EntitySet="LevelTraining" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
           <AssociationSet Name="FK_Users_Gender" Association="Self.FK_Users_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Users" EntitySet="Users" />
@@ -176,13 +265,31 @@
             <End Role="LevelTraining" EntitySet="LevelTraining" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="Horses" EntityType="CourseWorkModel.Horses" />
+          <AssociationSet Name="FK_Horses_Horses" Association="CourseWorkModel.FK_Horses_Horses">
+            <End Role="Horses" EntitySet="Horses" />
+            <End Role="Horses1" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horses_Horses1" Association="CourseWorkModel.FK_Horses_Horses1">
+            <End Role="Horses" EntitySet="Horses" />
+            <End Role="Horses1" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horses_LevelTraining" Association="CourseWorkModel.FK_Horses_LevelTraining">
+            <End Role="LevelTraining" EntitySet="LevelTraining" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
+          <EntitySet Name="HorseGender" EntityType="CourseWorkModel.HorseGender" />
+          <AssociationSet Name="FK_Horses_HorseGender" Association="CourseWorkModel.FK_Horses_HorseGender">
+            <End Role="HorseGender" EntitySet="HorseGender" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="CourseWorkModel.FK_Users_Position" FromRole="Position" ToRole="Users" />
         </EntityType>
         <Association Name="FK_Users_Position">
@@ -202,8 +309,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="CourseWorkModel.FK_Users_LevelTraining" FromRole="LevelTraining" ToRole="Users" />
+          <NavigationProperty Name="Horses" Relationship="CourseWorkModel.FK_Horses_LevelTraining" FromRole="LevelTraining" ToRole="Horses" />
         </EntityType>
         <Association Name="FK_Users_LevelTraining">
           <End Type="CourseWorkModel.LevelTraining" Role="LevelTraining" Multiplicity="0..1" />
@@ -214,6 +322,84 @@
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="LevelTrainingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Horses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Moniker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HorseGenderId" Type="Int32" />
+          <Property Name="StallId" Type="Int32" />
+          <Property Name="TypeId" Type="Int32" />
+          <Property Name="LevelTrainingId" Type="Int32" />
+          <Property Name="MotherId" Type="Int32" />
+          <Property Name="FatherId" Type="Int32" />
+          <NavigationProperty Name="Horses1" Relationship="CourseWorkModel.FK_Horses_Horses" FromRole="Horses" ToRole="Horses1" />
+          <NavigationProperty Name="Horses2" Relationship="CourseWorkModel.FK_Horses_Horses" FromRole="Horses1" ToRole="Horses" />
+          <NavigationProperty Name="Horses11" Relationship="CourseWorkModel.FK_Horses_Horses1" FromRole="Horses" ToRole="Horses1" />
+          <NavigationProperty Name="Horses3" Relationship="CourseWorkModel.FK_Horses_Horses1" FromRole="Horses1" ToRole="Horses" />
+          <NavigationProperty Name="LevelTraining" Relationship="CourseWorkModel.FK_Horses_LevelTraining" FromRole="Horses" ToRole="LevelTraining" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HorseGender" Relationship="CourseWorkModel.FK_Horses_HorseGender" FromRole="Horses" ToRole="HorseGender" />
+          <Property Name="ImageSourse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Horses_Horses">
+          <End Type="CourseWorkModel.Horses" Role="Horses" Multiplicity="0..1" />
+          <End Type="CourseWorkModel.Horses" Role="Horses1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses1">
+              <PropertyRef Name="MotherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Horses_Horses1">
+          <End Type="CourseWorkModel.Horses" Role="Horses" Multiplicity="0..1" />
+          <End Type="CourseWorkModel.Horses" Role="Horses1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses1">
+              <PropertyRef Name="FatherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Horses_LevelTraining">
+          <End Type="CourseWorkModel.LevelTraining" Role="LevelTraining" Multiplicity="0..1" />
+          <End Type="CourseWorkModel.Horses" Role="Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevelTraining">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="LevelTrainingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HorseGender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Horses" Relationship="CourseWorkModel.FK_Horses_HorseGender" FromRole="HorseGender" ToRole="Horses" />
+        </EntityType>
+        <Association Name="FK_Horses_HorseGender">
+          <End Type="CourseWorkModel.HorseGender" Role="HorseGender" Multiplicity="0..1" />
+          <End Type="CourseWorkModel.Horses" Role="Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HorseGender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="HorseGenderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -269,6 +455,31 @@
           <EntitySetMapping Name="LevelTraining">
             <EntityTypeMapping TypeName="CourseWorkModel.LevelTraining">
               <MappingFragment StoreEntitySet="LevelTraining">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horses">
+            <EntityTypeMapping TypeName="CourseWorkModel.Horses">
+              <MappingFragment StoreEntitySet="Horses">
+                <ScalarProperty Name="ImageSourse" ColumnName="ImageSourse" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FatherId" ColumnName="FatherId" />
+                <ScalarProperty Name="MotherId" ColumnName="MotherId" />
+                <ScalarProperty Name="LevelTrainingId" ColumnName="LevelTrainingId" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="StallId" ColumnName="StallId" />
+                <ScalarProperty Name="HorseGenderId" ColumnName="HorseGenderId" />
+                <ScalarProperty Name="DateOfBirthday" ColumnName="DateOfBirthday" />
+                <ScalarProperty Name="Moniker" ColumnName="Moniker" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HorseGender">
+            <EntityTypeMapping TypeName="CourseWorkModel.HorseGender">
+              <MappingFragment StoreEntitySet="HorseGender">
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

@@ -13,6 +13,12 @@
         <AssociationConnector Association="CourseWorkModel.FK_Users_Position" />
         <EntityTypeShape EntityType="CourseWorkModel.LevelTraining" Width="1.5" PointX="0.75" PointY="11" />
         <AssociationConnector Association="CourseWorkModel.FK_Users_LevelTraining" />
+        <EntityTypeShape EntityType="CourseWorkModel.Horses" Width="1.5" PointX="3" PointY="10" />
+        <AssociationConnector Association="CourseWorkModel.FK_Horses_Horses" />
+        <AssociationConnector Association="CourseWorkModel.FK_Horses_Horses1" />
+        <AssociationConnector Association="CourseWorkModel.FK_Horses_LevelTraining" />
+        <EntityTypeShape EntityType="CourseWorkModel.HorseGender" Width="1.5" PointX="5.375" PointY="0.875" />
+        <AssociationConnector Association="CourseWorkModel.FK_Horses_HorseGender" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

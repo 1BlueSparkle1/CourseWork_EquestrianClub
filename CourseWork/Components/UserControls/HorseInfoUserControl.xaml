@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="CourseWork.Components.UserControls.HorseInfoUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CourseWork.Components.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="380" d:DesignWidth="730">
+    <Border Margin="10" BorderBrush="#FF8D551C" BorderThickness="3">
+        <Grid>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <StackPanel>
+                    <Image Source="/Resources/Bell.png" Width="250" Height="200"></Image>
+                    <TextBlock FontSize="14" x:Name="MonikerTb" Margin="20,5,5,5"></TextBlock>
+                    <TextBlock FontSize="14" x:Name="GenderTb" Margin="20,5,5,5"></TextBlock>
+                    <TextBlock FontSize="14" Margin="20,5,5,0">Дата рождения:</TextBlock>
+                    <TextBlock FontSize="14" x:Name="DateOfBirthdayTb" Margin="20,0,5,5"></TextBlock>
+                    <TextBlock FontSize="14" Margin="20,5,5,0">Уровень подготовки:</TextBlock>
+                    <TextBlock FontSize="14" x:Name="LevelTrainingTb" Margin="20,0,5,5"></TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock x:Name="DescriptionTb" TextAlignment="Left" 
+            Margin="20" TextWrapping="Wrap" Width="400">
+
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
