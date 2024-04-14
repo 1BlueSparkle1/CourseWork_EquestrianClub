@@ -1,0 +1,42 @@
+﻿<Page x:Class="CourseWork.Pages.CenterFrame.LocationHorsesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseWork.Pages.CenterFrame"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="750"
+      Title="LocationHorsesPage">
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel Height="800" Orientation="Horizontal">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Resources/StableLayout.jpeg"/>
+                </StackPanel.Background>
+
+                <StackPanel Margin="150,60,0,0" Width="140" Height="595" VerticalAlignment="Top">
+                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
+                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
+                    <TextBlock Background="Black" Margin="16 22"></TextBlock>
+                    <TextBlock Background="Black" Margin="16 22"></TextBlock>
+                    <TextBlock Background="Black" Margin="16 22"></TextBlock>
+                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
+                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
+                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="145,60,0,0" Width="140" Height="595" VerticalAlignment="Top">
+                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
+                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
+                    <TextBlock Background="Black" Margin="12 22"></TextBlock>
+                    <TextBlock Background="Black" Margin="12 22"></TextBlock>
+                    <TextBlock Background="Black" Margin="12 22"></TextBlock>
+                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
+                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
+                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

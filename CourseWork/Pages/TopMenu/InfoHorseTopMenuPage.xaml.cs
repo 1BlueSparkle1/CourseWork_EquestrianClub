@@ -34,7 +34,7 @@ namespace CourseWork.Pages.TopMenu
 
         private void LocationInStableBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigations.NavigateCenterWindow(new LocationHorsesPage());
         }
 
         private void PrizeAndCompetiBtn_Click(object sender, RoutedEventArgs e)

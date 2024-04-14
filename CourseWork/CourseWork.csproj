@@ -109,6 +109,9 @@
     <Compile Include="Pages\CenterFrame\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CenterFrame\LocationHorsesPage.xaml.cs">
+      <DependentUpon>LocationHorsesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CenterFrame\MainInfoHorsePage.xaml.cs">
       <DependentUpon>MainInfoHorsePage.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CenterFrame\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CenterFrame\LocationHorsesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -268,6 +275,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\StableLayout.jpeg" />
     <Resource Include="Resources\LeafEnd.png" />
     <Resource Include="Resources\Leaf.png" />
     <Resource Include="Resources\FlowerButtom.png" />
