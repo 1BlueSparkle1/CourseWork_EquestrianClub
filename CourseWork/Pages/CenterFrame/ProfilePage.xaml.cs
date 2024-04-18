@@ -26,8 +26,6 @@ namespace CourseWork.Pages.CenterFrame
             InitializeComponent();
             //установка контекста в виде вошедшего пользователя
             this.DataContext = App.ThisUser;
-            //отображаем пароль вошедшего пользователя
-            PasswordTb.Password = App.ThisUser.Password;
             //ограничение вводимого возраста
             DateOfBirthdayDp.DisplayDateEnd = DateTime.Now.AddYears(-14);
             LevelTrainingCb.ItemsSource = App.db.LevelTraining.ToList();
@@ -45,7 +43,6 @@ namespace CourseWork.Pages.CenterFrame
             GenderCb.IsEnabled = true;
             DateOfBirthdayDp.IsEnabled = true;
             PhoneTb.IsEnabled = true;
-            PasswordTb.IsEnabled = true;
             LevelTrainingCb.IsEnabled = true;
             //отображаем кнопку сохранить
             SaveBtn.Visibility = Visibility.Visible;
@@ -106,7 +103,6 @@ namespace CourseWork.Pages.CenterFrame
                 App.ThisUser.LevelTrainingId = 8;
             }
             App.ThisUser.Phone = PhoneTb.Text;
-            App.ThisUser.Password = PasswordTb.Password;
             //сохранения этих данных в базу
             App.db.SaveChanges();
             //запрет редактирования полей
@@ -116,7 +112,6 @@ namespace CourseWork.Pages.CenterFrame
             GenderCb.IsEnabled = false;
             DateOfBirthdayDp.IsEnabled = false;
             PhoneTb.IsEnabled = false;
-            PasswordTb.IsEnabled = false;
             LevelTrainingCb.IsEnabled = false;
             //скрываем кнопку сохранить
             SaveBtn.Visibility = Visibility.Collapsed;
@@ -133,6 +128,11 @@ namespace CourseWork.Pages.CenterFrame
                 //если нет символ не вводится
                 e.Handled = true;
             }
+        }
+
+        private void EditPassBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EditPasswordPage());
         }
     }
 }

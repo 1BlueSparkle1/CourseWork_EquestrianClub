@@ -59,7 +59,7 @@ namespace CourseWork.Pages
                 if (!error)
                 {
                     //проверяем правильность пароля админа
-                    if (User.Password == PasswordPb.Password)
+                    if (User.Password == Md5Class.hashPassword(PasswordPb.Password))
                     {
 
                         //отображение и сокрытие фреймов при правильном пароле
@@ -101,7 +101,7 @@ namespace CourseWork.Pages
                         //обнуляем ошибки
                         error = true;
                         //если у выбраного пользователя совпадает пароль
-                        if (User.Password == PasswordPb.Password)
+                        if (User.Password == Md5Class.hashPassword(PasswordPb.Password))
                         {
                             //проверка на должность входящего пользователя
                             if(User.PositionId == 1)

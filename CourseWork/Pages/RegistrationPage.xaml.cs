@@ -130,7 +130,7 @@ namespace CourseWork.Pages
                     user.LevelTrainingId = 8;
                 }
                 user.Phone = PhoneTb.Text;
-                user.Password = PasswordPb.Password;
+                user.Password = Md5Class.hashPassword(PasswordPb.Password);
                 //записываем данные с переменной в бд
                 App.db.Users.Add(user);
                 //сохраняем

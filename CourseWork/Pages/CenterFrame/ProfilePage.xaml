@@ -67,19 +67,13 @@
                         <TextBox x:Name="PhoneTb" MaxLength="11" IsEnabled="False" Text="{Binding Phone}" PreviewTextInput="PhoneTb_PreviewTextInput"></TextBox>
                     </StackPanel>
 
-                    <!--Пароль-->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <TextBlock>Пароль</TextBlock>
-                        <PasswordBox x:Name="PasswordTb" MaxLength="50" IsEnabled="False"></PasswordBox>
-                    </StackPanel>
 
-                    
 
                 </StackPanel>
 
             </StackPanel>
 
-            <StackPanel Margin="30">
+            <StackPanel Margin="40">
 
                 <!--Кнопки-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -120,7 +114,21 @@
                     </Button.Resources>
                     Все записи
                 </Button>
-                
+
+                <!--Изменения-->
+                <Button x:Name="EditPassBtn" Padding="40 5" 
+                Background="#FF8D551C" Foreground="White" 
+                Click="EditPassBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock TextAlignment="Center">
+                        Изменить <LineBreak></LineBreak> пароль
+                    </TextBlock>
+                </Button>
+
             </StackPanel>
             
         </StackPanel>
