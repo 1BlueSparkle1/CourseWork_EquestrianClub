@@ -24,6 +24,7 @@ namespace CourseWork.Pages.CenterFrame
         public HomePage()
         {
             InitializeComponent();
+            //открытие главной страницы
             HomeInfoWp.Children.Add(new HomeUserControl());
         }
     }

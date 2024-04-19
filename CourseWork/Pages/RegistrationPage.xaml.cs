@@ -32,6 +32,7 @@ namespace CourseWork.Pages
             GenderCb.Text = "Неопределенный";
             //ограничение вводимого возраста
             DateOfBirthTb.DisplayDateEnd = DateTime.Now.AddYears(-14);
+            //заполнение комбо бокса уровень подготовки
             LevelTrainingCb.ItemsSource = App.db.LevelTraining.ToList();
             LevelTrainingCb.DisplayMemberPath = "Title";
         }

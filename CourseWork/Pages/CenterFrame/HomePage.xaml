@@ -9,7 +9,9 @@
       Title="HomePage">
 
     <Grid>
+        <!--прокручивоемое меню-->
         <ScrollViewer>
+            <!--меню для вставки элементов-->
             <WrapPanel x:Name="HomeInfoWp">
                 
             </WrapPanel>

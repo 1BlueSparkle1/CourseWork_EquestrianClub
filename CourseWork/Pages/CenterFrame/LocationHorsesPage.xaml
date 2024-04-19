@@ -9,13 +9,23 @@
       Title="LocationHorsesPage">
 
     <Grid>
+        <!--прокручивоемое меню-->
         <ScrollViewer>
+            <!--общая стек панель-->
             <StackPanel Height="800" Orientation="Horizontal">
+                
+                <!--стек панель со схемой конюшни-->
                 <StackPanel.Background>
+                    
+                    <!--схема конюшни-->
                     <ImageBrush ImageSource="/Resources/StableLayout.jpeg"/>
+                
                 </StackPanel.Background>
 
+                <!--стек панель левой стороны конюшни-->
                 <StackPanel Margin="150,60,0,0" Width="140" Height="595" VerticalAlignment="Top">
+
+                    <!--расположение лошадей-->
                     <TextBlock Background="Black" Margin="16 25"></TextBlock>
                     <TextBlock Background="Black" Margin="16 25"></TextBlock>
                     <TextBlock Background="Black" Margin="16 22"></TextBlock>
@@ -24,9 +34,13 @@
                     <TextBlock Background="Black" Margin="16 25"></TextBlock>
                     <TextBlock Background="Black" Margin="16 25"></TextBlock>
                     <TextBlock Background="Black" Margin="16 25"></TextBlock>
+                
                 </StackPanel>
 
+                <!--стек панель левой стороны конюшни-->
                 <StackPanel Margin="145,60,0,0" Width="140" Height="595" VerticalAlignment="Top">
+
+                    <!--расположение лошадей-->
                     <TextBlock Background="Black" Margin="12 25"></TextBlock>
                     <TextBlock Background="Black" Margin="12 25"></TextBlock>
                     <TextBlock Background="Black" Margin="12 22"></TextBlock>
@@ -35,8 +49,11 @@
                     <TextBlock Background="Black" Margin="12 25"></TextBlock>
                     <TextBlock Background="Black" Margin="12 25"></TextBlock>
                     <TextBlock Background="Black" Margin="12 25"></TextBlock>
+                
                 </StackPanel>
+            
             </StackPanel>
+        
         </ScrollViewer>
     </Grid>
 </Page>

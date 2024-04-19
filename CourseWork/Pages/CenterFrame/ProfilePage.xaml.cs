@@ -28,8 +28,10 @@ namespace CourseWork.Pages.CenterFrame
             this.DataContext = App.ThisUser;
             //ограничение вводимого возраста
             DateOfBirthdayDp.DisplayDateEnd = DateTime.Now.AddYears(-14);
+            //заполнение комбо бокса
             LevelTrainingCb.ItemsSource = App.db.LevelTraining.ToList();
             LevelTrainingCb.DisplayMemberPath = "Title";
+            //заполнение текущего текста в комбо боксе
             LevelTrainingCb.Text = App.ThisUser.LevelTraining.Title;
         }
 
@@ -132,6 +134,7 @@ namespace CourseWork.Pages.CenterFrame
 
         private void EditPassBtn_Click(object sender, RoutedEventArgs e)
         {
+            //переход на страницу изменения пароля
             NavigationService.Navigate(new EditPasswordPage());
         }
     }

@@ -29,11 +29,13 @@ namespace CourseWork.Pages.TopMenu
 
         private void AllInfoBtn_Click(object sender, RoutedEventArgs e)
         {
+            //переход к странице информации о лошадях
             Navigations.NavigateCenterWindow(new MainInfoHorsePage());
         }
 
         private void LocationInStableBtn_Click(object sender, RoutedEventArgs e)
         {
+            //переход к странице расположения лошадей в конюшне
             Navigations.NavigateCenterWindow(new LocationHorsesPage());
         }
 

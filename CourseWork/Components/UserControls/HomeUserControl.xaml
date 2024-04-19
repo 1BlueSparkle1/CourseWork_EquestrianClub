@@ -8,9 +8,10 @@
              d:DesignHeight="2150" d:DesignWidth="800">
     <Grid>
         <StackPanel HorizontalAlignment="Center">
-
+            <!--картинка начала вступительного текста-->
             <Image Source="/Resources/FlowerTop.png" HorizontalAlignment="Center"></Image>
 
+            <!--вступительный текст-->
             <TextBlock HorizontalAlignment="Center" FontSize="40" 
             FontWeight="SemiBold" Foreground="#FF8D551C">
                 Добро пожаловать в наш клуб!
@@ -37,8 +38,10 @@
                 самый живописный лес. Приезжайте и наслаждайтесь!
             </TextBlock>
 
+            <!--картинка конца вступительного текста-->
             <Image Source="/Resources/FlowerButtom.png" HorizontalAlignment="Center"></Image>
 
+            <!--первый модуль доп текста-->
             <TextBlock HorizontalAlignment="Center" FontSize="35" 
             FontWeight="SemiBold" Foreground="#FF8D551C" Margin="5,50,5,5">
                 Как человек оказывается в седле?
@@ -56,6 +59,7 @@
                 крутую шею и унестись в закат наперегонки с ветром…
             </TextBlock>
 
+            <!--второй модуль доп текста-->
             <TextBlock HorizontalAlignment="Center" FontSize="35" 
             FontWeight="SemiBold" Foreground="#FF8D551C" Margin="5,20,5,5">
                 Так может быть, время пришло?
@@ -92,8 +96,10 @@
                 умеющим летать.
             </TextBlock>
 
+            <!--разделяющая картинка-->
             <Image Margin="30" Width="100" Source="/Resources/Leaf.png" HorizontalAlignment="Center"></Image>
 
+            <!--третий модуль доп текста-->
             <TextBlock HorizontalAlignment="Center" FontSize="35" 
             FontWeight="SemiBold" Foreground="#FF8D551C">
                 Почему сесть на лошадь — так просто?
@@ -117,6 +123,7 @@
                 дальнейшего пути...
             </TextBlock>
 
+            <!--завершающая картинка-->
             <Image Source="/Resources/LeafEnd.png" HorizontalAlignment="Right"></Image>
 
         </StackPanel>

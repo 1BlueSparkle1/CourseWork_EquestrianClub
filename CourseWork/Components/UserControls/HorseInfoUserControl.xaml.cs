@@ -23,12 +23,14 @@ namespace CourseWork.Components.UserControls
         public HorseInfoUserControl(Horses horses)
         {
             InitializeComponent();
+
+            //определяем, что контекст данных у элемента horses
             this.DataContext = horses;
+
+            //заполнение блоков сложными данными(которые надо объединять или преобразовывать)
             MonikerTb.Text = "Кличка:" + horses.Moniker;
             GenderTb.Text = "Пол: " + horses.HorseGender.Title;
-            DateOfBirthdayTb.Text = horses.DateOfBirthday.ToString();
-            LevelTrainingTb.Text = horses.LevelTraining.Title;
-            DescriptionTb.Text = horses.Description;
+            DateOfBirthdayTb.Text = horses.DateOfBirthday.Date.ToString();
         }
     }
 }

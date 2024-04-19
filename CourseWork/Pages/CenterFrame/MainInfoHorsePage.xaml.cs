@@ -25,9 +25,13 @@ namespace CourseWork.Pages.CenterFrame
         public MainInfoHorsePage()
         {
             InitializeComponent();
+            //создаем лист лошадей
             IEnumerable<Horses> horses = App.db.Horses.ToList();
+
+            //перебираем лошадей
             foreach (Horses horse in horses)
             {
+                //выводим юсер контролы всех лошадей
                 MainInfoWp.Children.Add(new HorseInfoUserControl(horse));
             }
         }

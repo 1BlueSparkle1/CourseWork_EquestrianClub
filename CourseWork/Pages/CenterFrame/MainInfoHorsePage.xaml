@@ -9,7 +9,9 @@
       Title="MainInfoHorsePage">
 
     <Grid>
+        <!--прокручивоемое меню-->
         <ScrollViewer>
+            <!--меню для вставки элементов-->
             <WrapPanel Name="MainInfoWp">
                 
             </WrapPanel>
