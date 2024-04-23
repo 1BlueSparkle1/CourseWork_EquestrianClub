@@ -12,21 +12,19 @@ namespace CourseWork.Components
     using System;
     using System.Collections.Generic;
     
-    public partial class LevelTraining
+    public partial class PositionStable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LevelTraining()
+        public PositionStable()
         {
             this.Horses = new HashSet<Horses>();
-            this.Users = new HashSet<Users>();
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
+        public string Side { get; set; }
+        public Nullable<int> Number { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horses> Horses { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
     }
 }

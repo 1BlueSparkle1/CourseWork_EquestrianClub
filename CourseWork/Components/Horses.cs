@@ -19,6 +19,7 @@ namespace CourseWork.Components
         {
             this.Horses1 = new HashSet<Horses>();
             this.Horses11 = new HashSet<Horses>();
+            this.SignTrainings = new HashSet<SignTrainings>();
         }
     
         public int Id { get; set; }
@@ -32,7 +33,9 @@ namespace CourseWork.Components
         public Nullable<int> FatherId { get; set; }
         public string Description { get; set; }
         public string ImageSourse { get; set; }
+        public Nullable<int> PositionStableId { get; set; }
     
+        public virtual HorseGender HorseGender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horses> Horses1 { get; set; }
         public virtual Horses Horses2 { get; set; }
@@ -40,6 +43,8 @@ namespace CourseWork.Components
         public virtual ICollection<Horses> Horses11 { get; set; }
         public virtual Horses Horses3 { get; set; }
         public virtual LevelTraining LevelTraining { get; set; }
-        public virtual HorseGender HorseGender { get; set; }
+        public virtual PositionStable PositionStable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SignTrainings> SignTrainings { get; set; }
     }
 }

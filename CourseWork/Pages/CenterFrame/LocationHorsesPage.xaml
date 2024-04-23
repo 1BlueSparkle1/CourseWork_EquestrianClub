@@ -26,14 +26,14 @@
                 <StackPanel Margin="150,60,0,0" Width="140" Height="595" VerticalAlignment="Top">
 
                     <!--расположение лошадей-->
-                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
-                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
-                    <TextBlock Background="Black" Margin="16 22"></TextBlock>
-                    <TextBlock Background="Black" Margin="16 22"></TextBlock>
-                    <TextBlock Background="Black" Margin="16 22"></TextBlock>
-                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
-                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
-                    <TextBlock Background="Black" Margin="16 25"></TextBlock>
+                    <TextBlock x:Name="LeftOneTb" Margin="16 25"></TextBlock>
+                    <TextBlock x:Name="LeftTwoTb" Margin="16 25"></TextBlock>
+                    <TextBlock x:Name="LeftThreeTb" Margin="16 22"></TextBlock>
+                    <TextBlock x:Name="LeftFourTb" Margin="16 22"></TextBlock>
+                    <TextBlock x:Name="LeftFiveTb" Margin="16 25"></TextBlock>
+                    <TextBlock x:Name="LeftSixTb" Margin="16 25"></TextBlock>
+                    <TextBlock x:Name="LeftSevenTb" Margin="16 25"></TextBlock>
+                    <TextBlock x:Name="LeftEightTb" Margin="16 25"></TextBlock>
                 
                 </StackPanel>
 
@@ -41,14 +41,14 @@
                 <StackPanel Margin="145,60,0,0" Width="140" Height="595" VerticalAlignment="Top">
 
                     <!--расположение лошадей-->
-                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
-                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
-                    <TextBlock Background="Black" Margin="12 22"></TextBlock>
-                    <TextBlock Background="Black" Margin="12 22"></TextBlock>
-                    <TextBlock Background="Black" Margin="12 22"></TextBlock>
-                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
-                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
-                    <TextBlock Background="Black" Margin="12 25"></TextBlock>
+                    <TextBlock x:Name="RightOneTb" Margin="12 25"></TextBlock>
+                    <TextBlock x:Name="RightTwoTb" Margin="12 25"></TextBlock>
+                    <TextBlock x:Name="RightThreeTb" Margin="12 22"></TextBlock>
+                    <TextBlock x:Name="RightFourTb" Margin="12 22"></TextBlock>
+                    <TextBlock x:Name="RightFiveTb" Margin="12 22"></TextBlock>
+                    <TextBlock x:Name="RightSixTb" Margin="12 25"></TextBlock>
+                    <TextBlock x:Name="RightSevenTb" Margin="12 25"></TextBlock>
+                    <TextBlock x:Name="RightEightTb" Margin="12 25"></TextBlock>
                 
                 </StackPanel>
             

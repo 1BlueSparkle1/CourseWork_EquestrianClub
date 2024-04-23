@@ -9,28 +9,148 @@
       Title="SignServicePage">
 
     <Grid>
-        <StackPanel>
-            <TextBlock x:Name="DescriptionTb" Margin="30 5" TextWrapping="Wrap"></TextBlock>
-            <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center">
-                <TextBlock Foreground="#FF8D551C" HorizontalAlignment="Center" FontWeight="Black">Тренировка на пони для детей</TextBlock>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock VerticalAlignment="Center">Кто записывается на тренировку?</TextBlock>
-                    <ComboBox>
-                        <ComboBoxItem>Я</ComboBoxItem>
-                        <ComboBoxItem>Ребенок</ComboBoxItem>
-                        <ComboBoxItem>Другой человек</ComboBoxItem>
-                    </ComboBox>
-                </StackPanel>
-                <TextBlock FontSize="10">
-                    На конюшне вы будете нести ответственность 
-                    за ребенка, которого вы записываете!
+        <ScrollViewer>
+            <StackPanel>
+
+                <TextBlock x:Name="DescriptionTb" Margin="30 5" 
+                TextWrapping="Wrap" TextAlignment="Center" FontSize="15">
+
                 </TextBlock>
-                <StackPanel>
-                    <TextBlock TextAlignment="Center" TextWrapping="Wrap">При записи с другого аккаунта мы не сможем определить уровень ваших знаний, пожалуйста, зарегистрируйтесь от вашего лица!</TextBlock>
-                    <Button HorizontalAlignment="Center">Зарегистрироваться</Button>
+
+                <StackPanel HorizontalAlignment="Center">
+
+                    <TextBlock x:Name="TitleTb" Foreground="#FF8D551C" 
+                    HorizontalAlignment="Center" FontWeight="Black">
+
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center">
+
+                        <TextBlock VerticalAlignment="Center">
+                            Кто записывается на тренировку?
+                        </TextBlock>
+
+                        <ComboBox x:Name="WhoCb" SelectionChanged="WhoCb_SelectionChanged">
+                            <ComboBoxItem>Я</ComboBoxItem>
+                            <ComboBoxItem>Ребенок</ComboBoxItem>
+                            <ComboBoxItem>Другой человек</ComboBoxItem>
+                        </ComboBox>
+
+                    </StackPanel>
+
+                    <TextBlock x:Name="WarningKidsTb" Visibility="Collapsed" 
+                    FontSize="10">
+                        На конюшне вы будете нести ответственность 
+                        за ребенка, которого вы записываете!
+                    </TextBlock>
+
+                    <StackPanel x:Name="NewPersonSp" Visibility="Collapsed">
+
+                        <TextBlock TextAlignment="Center" TextWrapping="Wrap">
+                            При записи с другого аккаунта мы не сможем 
+                            определить уровень ваших знаний, пожалуйста, 
+                            зарегистрируйтесь или войдите от вашего лица!
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                            <Button HorizontalAlignment="Center"
+                            Background="#FF8D551C" Foreground="White"
+                            x:Name="RegBtn" Click="RegBtn_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"></Setter>
+                                    </Style>
+                                </Button.Resources>
+                                Зарегистрироваться
+                            </Button>
+
+                            <Button HorizontalAlignment="Center" Padding="30 5"
+                            Background="#FF8D551C" Foreground="White"
+                            x:Name="AuthBtn" Click="AuthBtn_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"></Setter>
+                                    </Style>
+                                </Button.Resources>
+                                Войти
+                            </Button>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel x:Name="SignSp" HorizontalAlignment="Center" 
+                    Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Right">
+                            <TextBlock VerticalAlignment="Center">
+                                Уровень подготовки:
+                            </TextBlock>
+                            <ComboBox x:Name="LevelTrainingCb"></ComboBox>
+                        </StackPanel>
+
+                        <TextBlock FontSize="10" TextWrapping="Wrap" 
+                        Width="400" x:Name="WarningTrainingTb">
+                            Если ваш уровень подготовки указан неверно, 
+                            измените его в окне профиля!
+                        </TextBlock>
+
+                        <StackPanel HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center">
+                                    Дата:
+                                </TextBlock>
+                                <DatePicker SelectedDateChanged="DateDp_SelectedDateChanged" Name="DateDp"></DatePicker>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center">
+                                    Время:
+                                </TextBlock>
+                                <ComboBox x:Name="TimeCb" SelectionChanged="TimeCb_SelectionChanged"></ComboBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center">
+                                    Лошадь:
+                                </TextBlock>
+                                <ComboBox x:Name="HorseCb"></ComboBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center">
+                                    Тренер:
+                                </TextBlock>
+                                <ComboBox x:Name="TrainerCb"></ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <TextBlock FontSize="10" TextWrapping="Wrap" 
+                        Width="400">
+                            Если оставить поля лошадь и тренер пустыми, то 
+                            автоматически выберутся те, кто свободны на 
+                            данное время!
+                        </TextBlock>
+
+                        <Button HorizontalAlignment="Center"
+                            Background="#FF8D551C" Foreground="White">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"></Setter>
+                                </Style>
+                            </Button.Resources>
+                            Записаться
+                        </Button>
+
+                    </StackPanel>
+
                 </StackPanel>
-                
             </StackPanel>
-        </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

@@ -25,12 +25,16 @@ namespace CourseWork.Components
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AvaliableTime> AvaliableTime { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
+        public virtual DbSet<HorseGender> HorseGender { get; set; }
+        public virtual DbSet<Horses> Horses { get; set; }
+        public virtual DbSet<LevelTraining> LevelTraining { get; set; }
+        public virtual DbSet<Position> Position { get; set; }
+        public virtual DbSet<PositionStable> PositionStable { get; set; }
+        public virtual DbSet<Services> Services { get; set; }
+        public virtual DbSet<SignTrainings> SignTrainings { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Position> Position { get; set; }
-        public virtual DbSet<LevelTraining> LevelTraining { get; set; }
-        public virtual DbSet<Horses> Horses { get; set; }
-        public virtual DbSet<HorseGender> HorseGender { get; set; }
     }
 }

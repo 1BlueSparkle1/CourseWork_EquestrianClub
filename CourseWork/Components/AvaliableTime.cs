@@ -12,32 +12,18 @@ namespace CourseWork.Components
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class AvaliableTime
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public AvaliableTime()
         {
             this.SignTrainings = new HashSet<SignTrainings>();
-            this.SignTrainings1 = new HashSet<SignTrainings>();
         }
     
         public int Id { get; set; }
-        public string Surname { get; set; }
-        public string FirstName { get; set; }
-        public string Patronymic { get; set; }
-        public int GenderId { get; set; }
-        public Nullable<System.DateTime> DateOfBirthday { get; set; }
-        public int PositionId { get; set; }
-        public Nullable<int> LevelTrainingId { get; set; }
-        public string Phone { get; set; }
-        public string Password { get; set; }
+        public Nullable<System.TimeSpan> Title { get; set; }
     
-        public virtual Gender Gender { get; set; }
-        public virtual LevelTraining LevelTraining { get; set; }
-        public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SignTrainings> SignTrainings { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SignTrainings> SignTrainings1 { get; set; }
     }
 }

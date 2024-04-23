@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CourseWork.Components;
+using CourseWork.Pages.CenterFrame;
+using CourseWork.Сomponents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,19 @@ namespace CourseWork.Pages.TopMenu
         public TrainingTopMenuPage()
         {
             InitializeComponent();
+        }
+
+        private void PonyTrainBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Services> services = App.db.Services.Where(x => x.Id == 1).ToList();
+            if (App.Guest)
+            {
+                Navigations.NavigateCenterWindow(new WarningGuestPage());
+            }
+            else
+            {
+                Navigations.NavigateCenterWindow(new SignServicePage(services.First()));
+            }
         }
     }
 }

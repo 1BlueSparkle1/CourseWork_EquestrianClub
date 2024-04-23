@@ -13,8 +13,8 @@
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,60,0" Background="White">
 
             <!--кнопка тренировки детей на пони-->
-            <Button Margin="20 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            <Button x:Name="PonyTrainBtn" Margin="20 5" Background="{x:Null}" 
+            BorderBrush="{x:Null}" Foreground="#FF8D551C" Click="PonyTrainBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>

@@ -177,6 +177,7 @@ namespace CourseWork.Pages
             Navigations.NavigateVisibleFrame(true);
             //объявление, что гость
             App.Guest = true;
+            App.ThisUser = new Users();
             //вход в систему
             Navigations.NavigateCenterWindow(new HomePage());
             Navigations.NavigateLeftMenu(new UserLeftMenuPage());
