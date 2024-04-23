@@ -17,16 +17,16 @@ namespace CourseWork.Components
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LevelTraining()
         {
-            this.Horses = new HashSet<Horses>();
-            this.Users = new HashSet<Users>();
+            this.LevelTrainingHorses = new HashSet<LevelTrainingHorses>();
+            this.LevelTrainingUsers = new HashSet<LevelTrainingUsers>();
         }
     
         public int Id { get; set; }
         public string Title { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Horses> Horses { get; set; }
+        public virtual ICollection<LevelTrainingHorses> LevelTrainingHorses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public virtual ICollection<LevelTrainingUsers> LevelTrainingUsers { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace CourseWork.Pages
     {
         //объявление вспомогательной переменной
         private static Users user = new Users();
+        private static LevelTrainingUsers trainingUsers = new LevelTrainingUsers();
         public RegistrationPage()
         {
             InitializeComponent();
@@ -98,42 +99,48 @@ namespace CourseWork.Pages
                 }
                 user.DateOfBirthday = DateOfBirthTb.DisplayDate;
                 user.PositionId = 1;
-                if (LevelTrainingCb.SelectedIndex == 0)
-                {
-                    user.LevelTrainingId = 1;
-                }
-                else if (LevelTrainingCb.SelectedIndex == 1)
-                {
-                    user.LevelTrainingId = 2;
-                }
-                else if (LevelTrainingCb.SelectedIndex == 2)
-                {
-                    user.LevelTrainingId = 3;
-                }
-                else if (LevelTrainingCb.SelectedIndex == 3)
-                {
-                    user.LevelTrainingId = 4;
-                }
-                else if (LevelTrainingCb.SelectedIndex == 4)
-                {
-                    user.LevelTrainingId = 5;
-                }
-                else if (LevelTrainingCb.SelectedIndex == 5)
-                {
-                    user.LevelTrainingId = 6;
-                }
-                else if (LevelTrainingCb.SelectedIndex == 6)
-                {
-                    user.LevelTrainingId = 7;
-                }
-                else if (LevelTrainingCb.SelectedIndex == 7)
-                {
-                    user.LevelTrainingId = 8;
-                }
                 user.Phone = PhoneTb.Text;
                 user.Password = Md5Class.hashPassword(PasswordPb.Password);
                 //записываем данные с переменной в бд
                 App.db.Users.Add(user);
+                //сохраняем
+                App.db.SaveChanges();
+                users = App.db.Users.ToList();
+                trainingUsers.UserId = users.Last().Id;
+                if (LevelTrainingCb.SelectedIndex == 0)
+                {
+                    trainingUsers.LevelTrainingId = 1;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 1)
+                {
+                    trainingUsers.LevelTrainingId = 2;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 2)
+                {
+                    trainingUsers.LevelTrainingId = 3;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 3)
+                {
+                    trainingUsers.LevelTrainingId = 4;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 4)
+                {
+                    trainingUsers.LevelTrainingId = 5;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 5)
+                {
+                    trainingUsers.LevelTrainingId = 6;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 6)
+                {
+                    trainingUsers.LevelTrainingId = 7;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 7)
+                {
+                    trainingUsers.LevelTrainingId = 8;
+                }
+                //записываем данные с переменной в бд
+                App.db.LevelTrainingUsers.Add(trainingUsers);
                 //сохраняем
                 App.db.SaveChanges();
                 //оповещаем пользователя о регистрации

@@ -13,7 +13,7 @@
             <StackPanel>
 
                 <TextBlock x:Name="DescriptionTb" Margin="30 5" 
-                TextWrapping="Wrap" TextAlignment="Center" FontSize="15">
+                TextWrapping="Wrap" TextAlignment="Center">
 
                 </TextBlock>
 
@@ -87,7 +87,7 @@
                             <TextBlock VerticalAlignment="Center">
                                 Уровень подготовки:
                             </TextBlock>
-                            <ComboBox x:Name="LevelTrainingCb"></ComboBox>
+                            <ComboBox x:Name="LevelTrainingCb" SelectionChanged="TimeCb_SelectionChanged"></ComboBox>
                         </StackPanel>
 
                         <TextBlock FontSize="10" TextWrapping="Wrap" 
@@ -102,7 +102,7 @@
                                 <TextBlock VerticalAlignment="Center">
                                     Дата:
                                 </TextBlock>
-                                <DatePicker SelectedDateChanged="DateDp_SelectedDateChanged" Name="DateDp"></DatePicker>
+                                <DatePicker SelectedDateChanged="TimeCb_SelectionChanged" Name="DateDp"></DatePicker>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" 

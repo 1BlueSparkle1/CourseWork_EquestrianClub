@@ -49,7 +49,7 @@ namespace CourseWork.Pages.CenterFrame
                 SignSp.Visibility = Visibility.Visible;
                 WarningKidsTb.Visibility = Visibility.Collapsed;
                 NewPersonSp.Visibility = Visibility.Collapsed;
-                LevelTrainingCb.Text = App.ThisUser.LevelTraining.Title;
+                LevelTrainingCb.Text = App.ThisUser.LevelTrainingUsers.First().LevelTraining.Title;
                 LevelTrainingCb.IsEnabled = false;
                 WarningTrainingTb.Visibility = Visibility.Visible;
                 Refresh();
@@ -97,26 +97,27 @@ namespace CourseWork.Pages.CenterFrame
         {
             if (servicePage.LevelTrainingCb.SelectedIndex != -1 && servicePage.DateDp.SelectedDate != null && servicePage.TimeCb.SelectedIndex != -1)
             {
-                trainers = App.db.Users.Where(x => x.PositionId == 2 && x.LevelTraining.Title == servicePage.LevelTrainingCb.Text).ToList();
+                trainers = App.db.Users.Where(x => x.PositionId == 2 && x.LevelTrainingUsers.Where(a => a.LevelTrainingId == 
+                servicePage.LevelTrainingCb.SelectedIndex + 1).Count() != 0).ToList();
+
                 servicePage.TrainerCb.ItemsSource = trainers.Where(x => x.SignTrainings1.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex+1 
                 && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0);
-                servicePage.TrainerCb.DisplayMemberPath = "Surname";
+
+                servicePage.TrainerCb.DisplayMemberPath = "FullName";
                 servicePage.TrainerCb.IsEnabled = true;
 
+
                 servicePage.HorseCb.IsEnabled = true;
-                servicePage.HorseCb.ItemsSource = App.db.Horses.Where(x => x.LevelTraining.Title == servicePage.LevelTrainingCb.Text && 
-                x.SignTrainings.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex + 1 && a.DateTrain == 
-                servicePage.DateDp.SelectedDate).Count() == 0).ToList();
+
+                servicePage.HorseCb.ItemsSource = App.db.Horses.Where(x => x.LevelTrainingHorses.Where(b => b.LevelTrainingId == 
+                servicePage.LevelTrainingCb.SelectedIndex + 1).Count() != 0 && x.SignTrainings.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex + 1 
+                && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0).ToList();
+
                 servicePage.HorseCb.DisplayMemberPath = "Moniker";
             }
         }
 
         private void TimeCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Refresh();
-        }
-
-        private void DateDp_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh();
         }

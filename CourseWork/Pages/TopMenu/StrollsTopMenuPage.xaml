@@ -14,7 +14,8 @@
 
             <!--кнопка пргулки по лесопарку-->
             <Button Margin="13 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="ForestBtn" Click="ForestBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -25,7 +26,8 @@
 
             <!--кнопка прогулки в поле-->
             <Button Margin="13 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="FieldBtn" Click="FieldBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -36,7 +38,8 @@
 
             <!--кнопка прогулки вокруг конюшни-->
             <Button Margin="13 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="AroundStableBtn" Click="AroundStableBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -47,7 +50,8 @@
 
             <!--кнопка часовой прогулки на платцу-->
             <Button Margin="13 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="OneHourBtn" Click="OneHourBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>

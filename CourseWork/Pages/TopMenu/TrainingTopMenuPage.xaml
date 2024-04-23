@@ -25,7 +25,8 @@
 
             <!--кнопка тренировки для начинающих-->
             <Button Margin="20 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="NewTrainBtn" Click="NewTrainBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -36,7 +37,8 @@
 
             <!--кнопка тренировки по конкуру-->
             <Button Margin="20 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="ConkurBtn" Click="ConkurBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -47,7 +49,8 @@
 
             <!--кнопка тренировки по выездке-->
             <Button Margin="20 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="VyezdcaBtn" Click="VyezdcaBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>

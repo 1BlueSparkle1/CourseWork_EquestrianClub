@@ -37,6 +37,45 @@ namespace CourseWork.Pages.TopMenu
             }
             else
             {
+                Navigations.NavigateCenterWindow(new SignServicePage(services.Where(x => x.Id == 1).First()));
+            }
+        }
+
+        private void NewTrainBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Services> services = App.db.Services.Where(x => x.Id == 2).ToList();
+            if (App.Guest)
+            {
+                Navigations.NavigateCenterWindow(new WarningGuestPage());
+            }
+            else
+            {
+                Navigations.NavigateCenterWindow(new SignServicePage(services.First()));
+            }
+        }
+
+        private void VyezdcaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Services> services = App.db.Services.Where(x => x.Id == 4).ToList();
+            if (App.Guest)
+            {
+                Navigations.NavigateCenterWindow(new WarningGuestPage());
+            }
+            else
+            {
+                Navigations.NavigateCenterWindow(new SignServicePage(services.First()));
+            }
+        }
+
+        private void ConkurBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Services> services = App.db.Services.Where(x => x.Id == 3).ToList();
+            if (App.Guest)
+            {
+                Navigations.NavigateCenterWindow(new WarningGuestPage());
+            }
+            else
+            {
                 Navigations.NavigateCenterWindow(new SignServicePage(services.First()));
             }
         }

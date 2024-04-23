@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CourseWork.Components;
+using CourseWork.Pages.CenterFrame;
+using CourseWork.Сomponents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,58 @@ namespace CourseWork.Pages.TopMenu
         public StrollsTopMenuPage()
         {
             InitializeComponent();
+        }
+
+        private void ForestBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Services> services = App.db.Services.Where(x => x.Id == 5).ToList();
+            if (App.Guest)
+            {
+                Navigations.NavigateCenterWindow(new WarningGuestPage());
+            }
+            else
+            {
+                Navigations.NavigateCenterWindow(new SignServicePage(services.First()));
+            }
+        }
+
+        private void FieldBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Services> services = App.db.Services.Where(x => x.Id == 6).ToList();
+            if (App.Guest)
+            {
+                Navigations.NavigateCenterWindow(new WarningGuestPage());
+            }
+            else
+            {
+                Navigations.NavigateCenterWindow(new SignServicePage(services.First()));
+            }
+        }
+
+        private void AroundStableBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Services> services = App.db.Services.Where(x => x.Id == 7).ToList();
+            if (App.Guest)
+            {
+                Navigations.NavigateCenterWindow(new WarningGuestPage());
+            }
+            else
+            {
+                Navigations.NavigateCenterWindow(new SignServicePage(services.First()));
+            }
+        }
+
+        private void OneHourBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Services> services = App.db.Services.Where(x => x.Id == 8).ToList();
+            if (App.Guest)
+            {
+                Navigations.NavigateCenterWindow(new WarningGuestPage());
+            }
+            else
+            {
+                Navigations.NavigateCenterWindow(new SignServicePage(services.First()));
+            }
         }
     }
 }

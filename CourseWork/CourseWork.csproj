@@ -79,6 +79,12 @@
     <Compile Include="Components\LevelTraining.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Components\LevelTrainingHorses.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LevelTrainingUsers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Components\Md5Class.cs" />
     <Compile Include="Components\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -95,6 +101,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Components\MyPartialClasses\Users.cs" />
     <Compile Include="Components\Position.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWork.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,10 @@ namespace CourseWork.Pages.CenterFrame
             LevelTrainingCb.ItemsSource = App.db.LevelTraining.ToList();
             LevelTrainingCb.DisplayMemberPath = "Title";
             //заполнение текущего текста в комбо боксе
-            LevelTrainingCb.Text = App.ThisUser.LevelTraining.Title;
+            if(App.ThisUser.PositionId == 1)
+            {
+                LevelTrainingCb.Text = App.db.LevelTrainingUsers.Where(x => x.UserId == App.ThisUser.Id).First().LevelTraining.Title;
+            }
         }
 
         //кнопка изменить
@@ -55,58 +59,61 @@ namespace CourseWork.Pages.CenterFrame
         //кнопка сохранить
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            //записываются новые введенные данные пользователя
-            App.ThisUser.Surname = SurnameTb.Text;
-            App.ThisUser.FirstName = NameTb.Text;
-            App.ThisUser.Patronymic = PatronymicTb.Text;
-            if (GenderCb.SelectedIndex == 0)
+            if(App.ThisUser.PositionId == 1)
             {
-                App.ThisUser.GenderId = 1;
+                //записываются новые введенные данные пользователя
+                App.ThisUser.Surname = SurnameTb.Text;
+                App.ThisUser.FirstName = NameTb.Text;
+                App.ThisUser.Patronymic = PatronymicTb.Text;
+                if (GenderCb.SelectedIndex == 0)
+                {
+                    App.ThisUser.GenderId = 1;
+                }
+                else if (GenderCb.SelectedIndex == 1)
+                {
+                    App.ThisUser.GenderId = 3;
+                }
+                else if (GenderCb.SelectedIndex == 2)
+                {
+                    App.ThisUser.GenderId = 2;
+                }
+                App.ThisUser.DateOfBirthday = DateOfBirthdayDp.DisplayDate;
+                if (LevelTrainingCb.SelectedIndex == 0)
+                {
+                    App.ThisUser.LevelTrainingUsers.First().LevelTrainingId = 1;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 1)
+                {
+                    App.ThisUser.LevelTrainingUsers.First().LevelTrainingId = 2;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 2)
+                {
+                    App.ThisUser.LevelTrainingUsers.First().LevelTrainingId = 3;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 3)
+                {
+                    App.ThisUser.LevelTrainingUsers.First().LevelTrainingId = 4;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 4)
+                {
+                    App.ThisUser.LevelTrainingUsers.First().LevelTrainingId = 5;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 5)
+                {
+                    App.ThisUser.LevelTrainingUsers.First().LevelTrainingId = 6;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 6)
+                {
+                    App.ThisUser.LevelTrainingUsers.First().LevelTrainingId = 7;
+                }
+                else if (LevelTrainingCb.SelectedIndex == 7)
+                {
+                    App.ThisUser.LevelTrainingUsers.First().LevelTrainingId = 8;
+                }
+                App.ThisUser.Phone = PhoneTb.Text;
+                //сохранения этих данных в базу
+                App.db.SaveChanges();
             }
-            else if (GenderCb.SelectedIndex == 1)
-            {
-                App.ThisUser.GenderId = 3;
-            }
-            else if (GenderCb.SelectedIndex == 2)
-            {
-                App.ThisUser.GenderId = 2;
-            }
-            App.ThisUser.DateOfBirthday = DateOfBirthdayDp.DisplayDate;
-            if (LevelTrainingCb.SelectedIndex == 0)
-            {
-                App.ThisUser.LevelTrainingId = 1;
-            }
-            else if (LevelTrainingCb.SelectedIndex == 1)
-            {
-                App.ThisUser.LevelTrainingId = 2;
-            }
-            else if (LevelTrainingCb.SelectedIndex == 2)
-            {
-                App.ThisUser.LevelTrainingId = 3;
-            }
-            else if (LevelTrainingCb.SelectedIndex == 3)
-            {
-                App.ThisUser.LevelTrainingId = 4;
-            }
-            else if (LevelTrainingCb.SelectedIndex == 4)
-            {
-                App.ThisUser.LevelTrainingId = 5;
-            }
-            else if (LevelTrainingCb.SelectedIndex == 5)
-            {
-                App.ThisUser.LevelTrainingId = 6;
-            }
-            else if (LevelTrainingCb.SelectedIndex == 6)
-            {
-                App.ThisUser.LevelTrainingId = 7;
-            }
-            else if (LevelTrainingCb.SelectedIndex == 7)
-            {
-                App.ThisUser.LevelTrainingId = 8;
-            }
-            App.ThisUser.Phone = PhoneTb.Text;
-            //сохранения этих данных в базу
-            App.db.SaveChanges();
             //запрет редактирования полей
             SurnameTb.IsEnabled = false;
             NameTb.IsEnabled = false;
