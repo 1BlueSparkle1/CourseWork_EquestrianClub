@@ -12,7 +12,7 @@
         <!--прокручивоемое меню-->
         <ScrollViewer>
             <!--общая стек панель-->
-            <StackPanel Height="800" Orientation="Horizontal">
+            <StackPanel Height="800" Orientation="Horizontal" Width="735">
                 
                 <!--стек панель со схемой конюшни-->
                 <StackPanel.Background>

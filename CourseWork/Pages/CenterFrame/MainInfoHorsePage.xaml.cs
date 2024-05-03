@@ -28,11 +28,23 @@ namespace CourseWork.Pages.CenterFrame
             //создаем лист лошадей
             IEnumerable<Horses> horses = App.db.Horses.ToList();
 
-            //перебираем лошадей
-            foreach (Horses horse in horses)
+            if (horses.Count() == 0)
             {
-                //выводим юсер контролы всех лошадей
-                MainInfoWp.Children.Add(new HorseInfoUserControl(horse));
+                MainInfoWp.Children.Clear();
+                MainInfoWp.Children.Add(new WarningBdUserControl());
+            }
+            else
+            {
+                MainInfoWp.Children.Clear();
+                //перебираем лошадей
+                foreach (Horses horse in horses)
+                {
+                    //выводим юсер контролы всех лошадей
+                    if (horse != null)
+                    {
+                        MainInfoWp.Children.Add(new HorseInfoUserControl(horse));
+                    }
+                }
             }
         }
     }

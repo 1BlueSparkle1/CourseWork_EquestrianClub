@@ -31,6 +31,7 @@ namespace CourseWork.Components.UserControls
             MonikerTb.Text = "Кличка:" + horses.Moniker;
             GenderTb.Text = "Пол: " + horses.HorseGender.Title;
             DateOfBirthdayTb.Text = horses.DateOfBirthday.Date.ToString();
+            LevelTrainingTb.Text = horses.LevelTrainingHorses.Last().LevelTraining.Title;
         }
     }
 }

@@ -12,7 +12,7 @@
         <!--прокручивоемое меню-->
         <ScrollViewer>
             <!--меню для вставки элементов-->
-            <WrapPanel Name="MainInfoWp">
+            <WrapPanel Name="MainInfoWp" HorizontalAlignment="Center">
                 
             </WrapPanel>
         </ScrollViewer>
