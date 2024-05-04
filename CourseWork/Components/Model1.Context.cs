@@ -26,6 +26,7 @@ namespace CourseWork.Components
         }
     
         public virtual DbSet<AvaliableTime> AvaliableTime { get; set; }
+        public virtual DbSet<Breeds> Breeds { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<HorseGender> HorseGender { get; set; }
         public virtual DbSet<Horses> Horses { get; set; }

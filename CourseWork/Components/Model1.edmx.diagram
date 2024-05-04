@@ -5,20 +5,22 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0a6050cbe5ab4ea8b971824d54794f38" Name="Diagram1">
-        <EntityTypeShape EntityType="CourseWorkModel.AvaliableTime" Width="1.5" PointX="6" PointY="8" />
-        <EntityTypeShape EntityType="CourseWorkModel.Gender" Width="1.5" PointX="3.75" PointY="10.375" />
-        <EntityTypeShape EntityType="CourseWorkModel.HorseGender" Width="1.5" PointX="0.75" PointY="1.875" />
-        <EntityTypeShape EntityType="CourseWorkModel.Horses" Width="1.5" PointX="3" PointY="3.25" />
-        <EntityTypeShape EntityType="CourseWorkModel.LevelTraining" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="CourseWorkModel.LevelTrainingHorses" Width="1.5" PointX="5.25" PointY="4.625" />
-        <EntityTypeShape EntityType="CourseWorkModel.LevelTrainingUsers" Width="1.5" PointX="8.25" PointY="8.5" />
-        <EntityTypeShape EntityType="CourseWorkModel.Position" Width="1.5" PointX="3.75" PointY="12.625" />
-        <EntityTypeShape EntityType="CourseWorkModel.PositionStable" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="CourseWorkModel.Services" Width="1.5" PointX="6" PointY="15" />
-        <EntityTypeShape EntityType="CourseWorkModel.SignTrainings" Width="1.5" PointX="8.25" PointY="4" />
-        <EntityTypeShape EntityType="CourseWorkModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.25" />
-        <EntityTypeShape EntityType="CourseWorkModel.Users" Width="1.5" PointX="6" PointY="10.5" />
+        <EntityTypeShape EntityType="CourseWorkModel.AvaliableTime" Width="1.5" PointX="6" PointY="17.625" />
+        <EntityTypeShape EntityType="CourseWorkModel.Breeds" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="CourseWorkModel.Gender" Width="1.5" PointX="3.75" PointY="15.25" />
+        <EntityTypeShape EntityType="CourseWorkModel.HorseGender" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="CourseWorkModel.Horses" Width="1.5" PointX="3" PointY="2.25" />
+        <EntityTypeShape EntityType="CourseWorkModel.LevelTraining" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="CourseWorkModel.LevelTrainingHorses" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="CourseWorkModel.LevelTrainingUsers" Width="1.5" PointX="8.25" PointY="12.375" />
+        <EntityTypeShape EntityType="CourseWorkModel.Position" Width="1.5" PointX="3.75" PointY="12.875" />
+        <EntityTypeShape EntityType="CourseWorkModel.PositionStable" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CourseWorkModel.Services" Width="1.5" PointX="6" PointY="7.375" />
+        <EntityTypeShape EntityType="CourseWorkModel.SignTrainings" Width="1.5" PointX="8.25" PointY="3" />
+        <EntityTypeShape EntityType="CourseWorkModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="8.25" />
+        <EntityTypeShape EntityType="CourseWorkModel.Users" Width="1.5" PointX="6" PointY="13" />
         <AssociationConnector Association="CourseWorkModel.FK_SignTrainings_AvaliableTime" />
+        <AssociationConnector Association="CourseWorkModel.FK_Horses_Breeds" />
         <AssociationConnector Association="CourseWorkModel.FK_Users_Gender" />
         <AssociationConnector Association="CourseWorkModel.FK_Horses_HorseGender" />
         <AssociationConnector Association="CourseWorkModel.FK_Horses_Horses" />

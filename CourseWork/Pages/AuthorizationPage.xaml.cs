@@ -28,6 +28,7 @@ namespace CourseWork.Pages
         //объявление вспомогательных переменных
         private static Users User = new Users();
         private static bool error = true;
+        public static MainWindow mainWindow;
 
         public AuthorizationPage()
         {
@@ -66,6 +67,7 @@ namespace CourseWork.Pages
                         Navigations.NavigateVisibleFrame(true);
                         //обозначение, что не гость
                         App.Guest = false;
+                        mainWindow.NotificationsBtn.Visibility = Visibility.Visible;
                         // вход в систему
                         Navigations.NavigateCenterWindow(new TestPage());
                         //обнуление ошибок
@@ -110,6 +112,7 @@ namespace CourseWork.Pages
                                 Navigations.NavigateVisibleFrame(true);
                                 //обозначение, что не гость
                                 App.Guest = false;
+                                mainWindow.NotificationsBtn.Visibility = Visibility.Visible;
                                 //записываем какой ползователь входит
                                 App.ThisUser = User;
                                 //вход в систему как посетитель
@@ -124,6 +127,7 @@ namespace CourseWork.Pages
                                 Navigations.NavigateVisibleFrame(true);
                                 //обозначение, что не гость
                                 App.Guest = false;
+                                mainWindow.NotificationsBtn.Visibility = Visibility.Visible;
                                 //записываем какой ползователь входит
                                 App.ThisUser = User;
                                 //вход в систему как тренер
@@ -137,6 +141,7 @@ namespace CourseWork.Pages
                                 Navigations.NavigateVisibleFrame(true);
                                 //обозначение, что не гость
                                 App.Guest = false;
+                                mainWindow.NotificationsBtn.Visibility = Visibility.Visible;
                                 //записываем какой ползователь входит
                                 App.ThisUser = User;
                                 //вход в систему как конюх
@@ -178,6 +183,7 @@ namespace CourseWork.Pages
             //объявление, что гость
             App.Guest = true;
             App.ThisUser = new Users();
+            mainWindow.NotificationsBtn.Visibility = Visibility.Collapsed;
             //вход в систему
             Navigations.NavigateCenterWindow(new HomePage());
             Navigations.NavigateLeftMenu(new UserLeftMenuPage());

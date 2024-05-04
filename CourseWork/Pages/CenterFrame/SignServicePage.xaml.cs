@@ -23,12 +23,14 @@ namespace CourseWork.Pages.CenterFrame
     public partial class SignServicePage : Page
     {
         public static SignServicePage servicePage;
+        public static Services services;
 
         private static IEnumerable<Users> trainers = new List<Users>();
-        public SignServicePage(Services services)
+        public SignServicePage(Services _services)
         {
             InitializeComponent();
             SignServicePage.servicePage = this;
+            services = _services;
 
             DescriptionTb.Text = services.Discription;
             TitleTb.Text = services.Title;
@@ -120,6 +122,27 @@ namespace CourseWork.Pages.CenterFrame
         private void TimeCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void SignBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(LevelTrainingCb.Text) || string.IsNullOrEmpty(TimeCb.Text) || string.IsNullOrEmpty(DateDp.Text))
+            {
+                MessageBox.Show("Уровень подготовки с датой и временем должны быть заполнены обязательно!");
+            }
+            else
+            {
+                SignTrainings sign = new SignTrainings();
+                sign.ServiceId = services.Id;
+                sign.DateTrain = DateDp.SelectedDate;
+                sign.TimeTrainId = TimeCb.SelectedIndex+1;
+                sign.UserId = App.ThisUser.Id;
+                sign.LevelTrainingId = App.db.LevelTraining.Where(x => x.Title == LevelTrainingCb.Text).First().Id;
+                sign.TrainerId = App.db.Users.Where(x => x.Surname + " " + x.FirstName + " " + x.Patronymic == TrainerCb.Text).First().Id;
+                sign.HorseId = App.db.Horses.Where(x => x.Moniker == HorseCb.Text).First().Id;
+                App.db.SignTrainings.Add(sign);
+                App.db.SaveChanges();
+            }
         }
     }
 }

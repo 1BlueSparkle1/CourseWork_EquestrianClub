@@ -12,21 +12,18 @@ namespace CourseWork.Components
     using System;
     using System.Collections.Generic;
     
-    public partial class SignTrainings
+    public partial class Breeds
     {
-        public int Id { get; set; }
-        public Nullable<int> ServiceId { get; set; }
-        public Nullable<System.DateTime> DateTrain { get; set; }
-        public Nullable<int> TimeTrainId { get; set; }
-        public Nullable<int> UserId { get; set; }
-        public Nullable<int> LevelTrainingId { get; set; }
-        public Nullable<int> TrainerId { get; set; }
-        public Nullable<int> HorseId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Breeds()
+        {
+            this.Horses = new HashSet<Horses>();
+        }
     
-        public virtual AvaliableTime AvaliableTime { get; set; }
-        public virtual Horses Horses { get; set; }
-        public virtual Services Services { get; set; }
-        public virtual Users Users { get; set; }
-        public virtual Users Users1 { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Horses> Horses { get; set; }
     }
 }

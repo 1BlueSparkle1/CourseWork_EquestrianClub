@@ -30,8 +30,14 @@ namespace CourseWork.Components.UserControls
             //заполнение блоков сложными данными(которые надо объединять или преобразовывать)
             MonikerTb.Text = "Кличка:" + horses.Moniker;
             GenderTb.Text = "Пол: " + horses.HorseGender.Title;
-            DateOfBirthdayTb.Text = horses.DateOfBirthday.Date.ToString();
-            LevelTrainingTb.Text = horses.LevelTrainingHorses.Last().LevelTraining.Title;
+            BreedTb.Text = "Порода: " + horses.Breeds.Title;
+            DateOfBirthdayTb.Text = horses.DateOfBirthday.Date.ToString().Remove(horses.DateOfBirthday.Date.ToString().Length-8);
+            string train = "";
+            foreach (var item in horses.LevelTrainingHorses.ToList())
+            {
+                train += item.LevelTraining.Title + ", ";
+            }
+            LevelTrainingTb.Text = $"Уровни подготовки: {train.Remove(train.Length - 2)}.";
         }
     }
 }

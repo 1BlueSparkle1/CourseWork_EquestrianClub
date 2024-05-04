@@ -25,16 +25,18 @@ namespace CourseWork.Components
     
         public int Id { get; set; }
         public string Moniker { get; set; }
+        public Nullable<int> BreedId { get; set; }
         public System.DateTime DateOfBirthday { get; set; }
         public Nullable<int> HorseGenderId { get; set; }
-        public Nullable<int> StallId { get; set; }
         public Nullable<int> TypeId { get; set; }
         public Nullable<int> MotherId { get; set; }
         public Nullable<int> FatherId { get; set; }
         public string Description { get; set; }
         public string ImageSourse { get; set; }
+        public byte[] ImageSourseByte { get; set; }
         public Nullable<int> PositionStableId { get; set; }
     
+        public virtual Breeds Breeds { get; set; }
         public virtual HorseGender HorseGender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horses> Horses1 { get; set; }
