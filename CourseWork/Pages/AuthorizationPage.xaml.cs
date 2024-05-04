@@ -68,8 +68,11 @@ namespace CourseWork.Pages
                         //обозначение, что не гость
                         App.Guest = false;
                         mainWindow.NotificationsBtn.Visibility = Visibility.Visible;
+                        //назначаем пользователя админом
+                        App.Admin = true;
                         // вход в систему
                         Navigations.NavigateCenterWindow(new TestPage());
+                        Navigations.NavigateLeftMenu(new AdminLeftMenuPage());
                         //обнуление ошибок
                         error = true;
                     }

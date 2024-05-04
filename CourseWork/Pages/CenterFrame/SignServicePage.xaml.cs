@@ -138,10 +138,60 @@ namespace CourseWork.Pages.CenterFrame
                 sign.TimeTrainId = TimeCb.SelectedIndex+1;
                 sign.UserId = App.ThisUser.Id;
                 sign.LevelTrainingId = App.db.LevelTraining.Where(x => x.Title == LevelTrainingCb.Text).First().Id;
-                sign.TrainerId = App.db.Users.Where(x => x.Surname + " " + x.FirstName + " " + x.Patronymic == TrainerCb.Text).First().Id;
-                sign.HorseId = App.db.Horses.Where(x => x.Moniker == HorseCb.Text).First().Id;
-                App.db.SignTrainings.Add(sign);
-                App.db.SaveChanges();
+                if (string.IsNullOrEmpty(TrainerCb.Text) && string.IsNullOrEmpty(HorseCb.Text))
+                {
+                    trainers = App.db.Users.Where(x => x.PositionId == 2 && x.LevelTrainingUsers.Where(a => a.LevelTrainingId ==
+                    servicePage.LevelTrainingCb.SelectedIndex + 1).Count() != 0).ToList();
+
+                    sign.TrainerId = trainers.Where(x => x.SignTrainings1.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex + 1
+                    && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0).First().Id;
+
+                    sign.HorseId = App.db.Horses.Where(x => x.LevelTrainingHorses.Where(b => b.LevelTrainingId ==
+                    servicePage.LevelTrainingCb.SelectedIndex + 1).Count() != 0 && x.SignTrainings.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex + 1
+                    && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0).First().Id;
+
+                    App.db.SignTrainings.Add(sign);
+                    App.db.SaveChanges();
+                    MessageBox.Show("Спасибо за запись! Вы можете просмотреть все свои записи и их статус в профиле.");
+                    Navigations.NavigateCenterWindow(new HomePage());
+                }
+                else if (!string.IsNullOrEmpty(TrainerCb.Text) && string.IsNullOrEmpty(HorseCb.Text))
+                {
+                    sign.TrainerId = App.db.Users.Where(x => x.Surname + " " + x.FirstName + " " + x.Patronymic == TrainerCb.Text).First().Id;
+
+                    sign.HorseId = App.db.Horses.Where(x => x.LevelTrainingHorses.Where(b => b.LevelTrainingId ==
+                    servicePage.LevelTrainingCb.SelectedIndex + 1).Count() != 0 && x.SignTrainings.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex + 1
+                    && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0).First().Id;
+
+                    App.db.SignTrainings.Add(sign);
+                    App.db.SaveChanges();
+                    MessageBox.Show("Спасибо за запись! Вы можете просмотреть все свои записи и их статус в профиле.");
+                    Navigations.NavigateCenterWindow(new HomePage());
+                }
+                else if (string.IsNullOrEmpty(TrainerCb.Text) && !string.IsNullOrEmpty(HorseCb.Text))
+                {
+                    trainers = App.db.Users.Where(x => x.PositionId == 2 && x.LevelTrainingUsers.Where(a => a.LevelTrainingId ==
+                    servicePage.LevelTrainingCb.SelectedIndex + 1).Count() != 0).ToList();
+
+                    sign.TrainerId = trainers.Where(x => x.SignTrainings1.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex + 1
+                    && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0).First().Id;
+
+                    sign.HorseId = App.db.Horses.Where(x => x.Moniker == HorseCb.Text).First().Id;
+
+                    App.db.SignTrainings.Add(sign);
+                    App.db.SaveChanges();
+                    MessageBox.Show("Спасибо за запись! Вы можете просмотреть все свои записи и их статус в профиле.");
+                    Navigations.NavigateCenterWindow(new HomePage());
+                }
+                else if (!string.IsNullOrEmpty(TrainerCb.Text) && !string.IsNullOrEmpty(HorseCb.Text))
+                {
+                    sign.TrainerId = App.db.Users.Where(x => x.Surname + " " + x.FirstName + " " + x.Patronymic == TrainerCb.Text).First().Id;
+                    sign.HorseId = App.db.Horses.Where(x => x.Moniker == HorseCb.Text).First().Id;
+                    App.db.SignTrainings.Add(sign);
+                    App.db.SaveChanges();
+                    MessageBox.Show("Спасибо за запись! Вы можете просмотреть все свои записи и их статус в профиле.");
+                    Navigations.NavigateCenterWindow(new HomePage());
+                }
             }
         }
     }

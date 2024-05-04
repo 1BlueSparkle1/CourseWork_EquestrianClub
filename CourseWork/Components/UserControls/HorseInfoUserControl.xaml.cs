@@ -28,7 +28,7 @@ namespace CourseWork.Components.UserControls
             this.DataContext = horses;
 
             //заполнение блоков сложными данными(которые надо объединять или преобразовывать)
-            MonikerTb.Text = "Кличка:" + horses.Moniker;
+            MonikerTb.Text = "Кличка: " + horses.Moniker;
             GenderTb.Text = "Пол: " + horses.HorseGender.Title;
             BreedTb.Text = "Порода: " + horses.Breeds.Title;
             DateOfBirthdayTb.Text = horses.DateOfBirthday.Date.ToString().Remove(horses.DateOfBirthday.Date.ToString().Length-8);
@@ -37,7 +37,14 @@ namespace CourseWork.Components.UserControls
             {
                 train += item.LevelTraining.Title + ", ";
             }
-            LevelTrainingTb.Text = $"Уровни подготовки: {train.Remove(train.Length - 2)}.";
+            if (train == "")
+            {
+                LevelTrainingTb.Text = $"Уровни подготовки: Неизвестно";
+            }
+            else
+            {
+                LevelTrainingTb.Text = $"Уровни подготовки: {train.Remove(train.Length - 2)}.";
+            }
         }
     }
 }

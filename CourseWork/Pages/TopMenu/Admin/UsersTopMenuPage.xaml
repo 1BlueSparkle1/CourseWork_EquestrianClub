@@ -1,0 +1,65 @@
+﻿<Page x:Class="CourseWork.Pages.TopMenu.Admin.UsersTopMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseWork.Pages.TopMenu.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="80" d:DesignWidth="750"
+      Title="UsersTopMenuPage">
+
+    <Grid>
+        <!--панель всех элементов меню-->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,60,0" Background="White">
+
+            <!--кнопка просмотра-->
+            <Button Margin="30 5" Background="{x:Null}" 
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="WatchBtn" Click="WatchBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <TextBlock FontSize="15">Просмотр</TextBlock>
+            </Button>
+
+            <!--кнопка добавления-->
+            <Button Margin="30 5" Background="{x:Null}" 
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="AddBtn" Click="AddBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <TextBlock FontSize="15">Добавить</TextBlock>
+            </Button>
+
+            <!--кнопка редактирования-->
+            <Button Margin="30 5" Background="{x:Null}" 
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="EditBtn" Click="EditBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <TextBlock FontSize="15">Редактировать</TextBlock>
+            </Button>
+
+            <!--удаления-->
+            <Button Margin="30 5" Background="{x:Null}" 
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="DeleteBtn" Click="DeleteBtn_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <TextBlock FontSize="15">Удалить</TextBlock>
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</Page>

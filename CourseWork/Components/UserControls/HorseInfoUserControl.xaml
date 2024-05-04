@@ -10,7 +10,7 @@
     <!--<Border Margin="10" BorderBrush="#FF8D551C" BorderThickness="3">-->
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="/Components/UserControls/frame-Photoroom.png-Photoroom.png"/>
+                <ImageBrush ImageSource="/Resources/frame.png"/>
             </Grid.Background>
             <StackPanel Margin="60,80,60,60">
                 <!--общая стек панель-->

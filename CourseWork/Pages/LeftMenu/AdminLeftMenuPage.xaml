@@ -1,0 +1,131 @@
+﻿<Page x:Class="CourseWork.Pages.LeftMenu.AdminLeftMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseWork.Pages.LeftMenu"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="250"
+      Title="AdminLeftMenuPage">
+
+    <Grid Margin="5">
+        <StackPanel Margin="0,80,0,0">
+            <!--оглавление группы кнопок-->
+            <TextBlock Foreground="#FF8D551C">Аккаунты</TextBlock>
+
+            <!--кнопка для перехода в разделы-->
+            <StackPanel Margin="20,0,0,0">
+
+                <Button HorizontalContentAlignment="Left" x:Name="UsersBtn"
+                 Background="#00000000" BorderBrush="#00000000"
+                 Foreground="White" Padding="0"
+                 Margin="5 0" Click="UsersBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock FontSize="15">Пользователи</TextBlock>
+                </Button>
+
+                <Button HorizontalContentAlignment="Left" x:Name="TrainersBtn"
+                 Background="#00000000" BorderBrush="#00000000"
+                 Foreground="White" Padding="0"
+                 Margin="5 0" Click="TrainersBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock FontSize="15">Тренера</TextBlock>
+                </Button>
+
+                <Button HorizontalContentAlignment="Left" x:Name="StablemanBtn"
+                 Background="#00000000" BorderBrush="#00000000"
+                 Foreground="White" Padding="0"
+                 Margin="5 0" Click="StablemanBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock FontSize="15">Конюхи</TextBlock>
+                </Button>
+            </StackPanel>
+
+            <!--оглавление группы кнопок-->
+            <TextBlock Foreground="#FF8D551C">Данные</TextBlock>
+
+            <!--кнопка для перехода в разделы-->
+            <StackPanel Margin="20,0,0,0">
+
+                <Button HorizontalContentAlignment="Left" 
+                 Background="#00000000" BorderBrush="#00000000"
+                 Foreground="White" Padding="0" x:Name="HorsesBtn"
+                 Margin="5 0" Click="HorsesBtn_Click" >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock FontSize="15">Лошади</TextBlock>
+                </Button>
+
+                <Button HorizontalContentAlignment="Left"  
+                 Background="#00000000" BorderBrush="#00000000"
+                 Foreground="White" Padding="0" x:Name="ChillRoomBtn"
+                 Margin="5 0" Click="ChillRoomBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock FontSize="15">Зоны отдыха</TextBlock>
+                </Button>
+
+                <Button HorizontalContentAlignment="Left"  
+                 Background="#00000000" BorderBrush="#00000000"
+                 Foreground="White" Padding="0" x:Name="SignsBtn"
+                 Margin="5 0" Click="SignsBtn_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock FontSize="15">Записи</TextBlock>
+                </Button>
+            </StackPanel>
+
+            <!--оглавление группы кнопок-->
+            <TextBlock Foreground="#FF8D551C">Другое</TextBlock>
+
+            <!--кнопка для перехода в разделы-->
+            <StackPanel Margin="20,0,0,0">
+
+                <Button HorizontalContentAlignment="Left" 
+                 Background="#00000000" BorderBrush="#00000000"
+                 Foreground="White" Padding="0" x:Name="QuestionsBtn"
+                 Margin="5 0" Click="QuestionsBtn_Click" >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock FontSize="15">Вопросы</TextBlock>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <!--кнопка для выхода из аккаунта-->
+        <Button Margin="10" Padding="3" 
+        VerticalAlignment="Bottom" x:Name="ExitBtn"
+        Background="#FF8D551C" Foreground="White" Click="ExitBtn_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+            <TextBlock FontSize="15">Выход</TextBlock>
+        </Button>
+    </Grid>
+</Page>
