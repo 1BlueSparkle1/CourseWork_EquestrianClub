@@ -14,7 +14,8 @@
 
             <!--кнопка информации о тренерах-->
             <Button Margin="30 5" Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FF8D551C">
+            BorderBrush="{x:Null}" Foreground="#FF8D551C"
+            x:Name="TrainersBtn" Click="TrainersBtn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>

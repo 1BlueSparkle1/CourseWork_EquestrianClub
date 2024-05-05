@@ -1,5 +1,4 @@
-﻿using CourseWork.Pages.CenterFrame;
-using CourseWork.Сomponents;
+﻿using CourseWork.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,21 +14,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CourseWork.Pages.TopMenu
+namespace CourseWork.Pages.CenterFrame
 {
     /// <summary>
-    /// Логика взаимодействия для InfoRecreationTopMenuPage.xaml
+    /// Логика взаимодействия для FotoRentPage.xaml
     /// </summary>
-    public partial class DopInfoTopMenuPage : Page
+    public partial class FotoRentPage : Page
     {
-        public DopInfoTopMenuPage()
+        public FotoRentPage(Services _services)
         {
             InitializeComponent();
-        }
-
-        private void TrainersBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Navigations.NavigateCenterWindow(new ListTrainersPage());
         }
     }
 }

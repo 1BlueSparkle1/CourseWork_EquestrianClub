@@ -126,6 +126,9 @@
     <Compile Include="Components\UserControls\HorseInfoUserControl.xaml.cs">
       <DependentUpon>HorseInfoUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\UserControls\TrainersUserControl.xaml.cs">
+      <DependentUpon>TrainersUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\UserControls\WarningBdUserControl.xaml.cs">
       <DependentUpon>WarningBdUserControl.xaml</DependentUpon>
     </Compile>
@@ -135,8 +138,14 @@
     <Compile Include="Pages\CenterFrame\EditPasswordPage.xaml.cs">
       <DependentUpon>EditPasswordPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CenterFrame\FotoRentPage.xaml.cs">
+      <DependentUpon>FotoRentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CenterFrame\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CenterFrame\ListTrainersPage.xaml.cs">
+      <DependentUpon>ListTrainersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CenterFrame\LocationHorsesPage.xaml.cs">
       <DependentUpon>LocationHorsesPage.xaml</DependentUpon>
@@ -174,6 +183,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Components\UserControls\TrainersUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\UserControls\WarningBdUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,7 +211,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CenterFrame\FotoRentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CenterFrame\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CenterFrame\ListTrainersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -333,6 +354,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Components\UserControls\frameUser.png" />
     <Resource Include="Resources\frameUser.png" />
     <Resource Include="Resources\frame.png" />
     <Resource Include="Resources\StableLayout.jpeg" />
