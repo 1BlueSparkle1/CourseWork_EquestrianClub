@@ -50,7 +50,9 @@
                         <TextBlock TextAlignment="Center" TextWrapping="Wrap">
                             При записи с другого аккаунта мы не сможем 
                             определить уровень ваших знаний, пожалуйста, 
-                            зарегистрируйтесь или войдите от вашего лица!
+                            зарегистрируйтесь или войдите от вашего лица! 
+                            Вы также можете позвонить на контактный телефон 
+                            для записи. Контактный телефон: + 7 (999) 567 - 27 - 45
                         </TextBlock>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
@@ -135,6 +137,11 @@
                             Если оставить поля лошадь и тренер пустыми, то 
                             автоматически выберутся те, кто свободны на 
                             данное время!
+                        </TextBlock>
+
+                        <TextBlock TextWrapping="Wrap" 
+                        Width="400" x:Name="PriceTb" Foreground="#FF8D551C">
+                            
                         </TextBlock>
 
                         <Button HorizontalAlignment="Center"

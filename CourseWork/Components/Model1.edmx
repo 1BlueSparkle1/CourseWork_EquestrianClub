@@ -16,7 +16,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Gender">
@@ -40,7 +40,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Moniker" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="BreedId" Type="int" />
-          <Property Name="DateOfBirthday" Type="date" Nullable="false" />
+          <Property Name="DateOfBirthday" Type="date" />
           <Property Name="HorseGenderId" Type="int" />
           <Property Name="TypeId" Type="int" />
           <Property Name="MotherId" Type="int" />
@@ -95,6 +95,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Discription" Type="nvarchar(max)" />
+          <Property Name="Price" Type="float" />
         </EntityType>
         <EntityType Name="SignTrainings">
           <Key>
@@ -105,9 +106,12 @@
           <Property Name="DateTrain" Type="date" />
           <Property Name="TimeTrainId" Type="int" />
           <Property Name="UserId" Type="int" />
+          <Property Name="QuantityPeople" Type="int" />
           <Property Name="LevelTrainingId" Type="int" />
           <Property Name="TrainerId" Type="int" />
           <Property Name="HorseId" Type="int" />
+          <Property Name="approved" Type="bit" />
+          <Property Name="viewed" Type="bit" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -118,6 +122,13 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypeHorses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -132,6 +143,7 @@
           <Property Name="PositionId" Type="int" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Discription" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Horses_Breeds">
           <End Role="Breeds" Type="Self.Breeds" Multiplicity="0..1" />
@@ -190,6 +202,18 @@
             </Principal>
             <Dependent Role="Horses">
               <PropertyRef Name="PositionStableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Horses_TypeHorses">
+          <End Role="TypeHorses" Type="Self.TypeHorses" Multiplicity="0..1" />
+          <End Role="Horses" Type="Self.Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeHorses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="TypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -339,6 +363,7 @@
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SignTrainings" EntityType="Self.SignTrainings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeHorses" EntityType="Self.TypeHorses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Horses_Breeds" Association="Self.FK_Horses_Breeds">
             <End Role="Breeds" EntitySet="Breeds" />
@@ -358,6 +383,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Horses_PositionStable" Association="Self.FK_Horses_PositionStable">
             <End Role="PositionStable" EntitySet="PositionStable" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horses_TypeHorses" Association="Self.FK_Horses_TypeHorses">
+            <End Role="TypeHorses" EntitySet="TypeHorses" />
             <End Role="Horses" EntitySet="Horses" />
           </AssociationSet>
           <AssociationSet Name="FK_LevelTrainingHorses_Horses" Association="Self.FK_LevelTrainingHorses_Horses">
@@ -423,6 +452,7 @@
           <EntitySet Name="Services" EntityType="CourseWorkModel.Services" />
           <EntitySet Name="SignTrainings" EntityType="CourseWorkModel.SignTrainings" />
           <EntitySet Name="sysdiagrams" EntityType="CourseWorkModel.sysdiagrams" />
+          <EntitySet Name="TypeHorses" EntityType="CourseWorkModel.TypeHorses" />
           <EntitySet Name="Users" EntityType="CourseWorkModel.Users" />
           <AssociationSet Name="FK_SignTrainings_AvaliableTime" Association="CourseWorkModel.FK_SignTrainings_AvaliableTime">
             <End Role="AvaliableTime" EntitySet="AvaliableTime" />
@@ -450,6 +480,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Horses_PositionStable" Association="CourseWorkModel.FK_Horses_PositionStable">
             <End Role="PositionStable" EntitySet="PositionStable" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horses_TypeHorses" Association="CourseWorkModel.FK_Horses_TypeHorses">
+            <End Role="TypeHorses" EntitySet="TypeHorses" />
             <End Role="Horses" EntitySet="Horses" />
           </AssociationSet>
           <AssociationSet Name="FK_LevelTrainingHorses_Horses" Association="CourseWorkModel.FK_LevelTrainingHorses_Horses">
@@ -501,7 +535,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Horses" Relationship="CourseWorkModel.FK_Horses_Breeds" FromRole="Breeds" ToRole="Horses" />
         </EntityType>
@@ -528,7 +562,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Moniker" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="BreedId" Type="Int32" />
-          <Property Name="DateOfBirthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateOfBirthday" Type="DateTime" Precision="0" />
           <Property Name="HorseGenderId" Type="Int32" />
           <Property Name="TypeId" Type="Int32" />
           <Property Name="MotherId" Type="Int32" />
@@ -544,6 +578,7 @@
           <NavigationProperty Name="Horses11" Relationship="CourseWorkModel.FK_Horses_Horses1" FromRole="Horses" ToRole="Horses1" />
           <NavigationProperty Name="Horses3" Relationship="CourseWorkModel.FK_Horses_Horses1" FromRole="Horses1" ToRole="Horses" />
           <NavigationProperty Name="PositionStable" Relationship="CourseWorkModel.FK_Horses_PositionStable" FromRole="Horses" ToRole="PositionStable" />
+          <NavigationProperty Name="TypeHorses" Relationship="CourseWorkModel.FK_Horses_TypeHorses" FromRole="Horses" ToRole="TypeHorses" />
           <NavigationProperty Name="LevelTrainingHorses" Relationship="CourseWorkModel.FK_LevelTrainingHorses_Horses" FromRole="Horses" ToRole="LevelTrainingHorses" />
           <NavigationProperty Name="SignTrainings" Relationship="CourseWorkModel.FK_SignTrainings_Horses" FromRole="Horses" ToRole="SignTrainings" />
         </EntityType>
@@ -600,6 +635,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
           <NavigationProperty Name="SignTrainings" Relationship="CourseWorkModel.FK_SignTrainings_Services" FromRole="Services" ToRole="SignTrainings" />
         </EntityType>
         <EntityType Name="SignTrainings">
@@ -611,9 +647,12 @@
           <Property Name="DateTrain" Type="DateTime" Precision="0" />
           <Property Name="TimeTrainId" Type="Int32" />
           <Property Name="UserId" Type="Int32" />
+          <Property Name="QuantityPeople" Type="Int32" />
           <Property Name="LevelTrainingId" Type="Int32" />
           <Property Name="TrainerId" Type="Int32" />
           <Property Name="HorseId" Type="Int32" />
+          <Property Name="approved" Type="Boolean" />
+          <Property Name="viewed" Type="Boolean" />
           <NavigationProperty Name="AvaliableTime" Relationship="CourseWorkModel.FK_SignTrainings_AvaliableTime" FromRole="SignTrainings" ToRole="AvaliableTime" />
           <NavigationProperty Name="Horses" Relationship="CourseWorkModel.FK_SignTrainings_Horses" FromRole="SignTrainings" ToRole="Horses" />
           <NavigationProperty Name="Services" Relationship="CourseWorkModel.FK_SignTrainings_Services" FromRole="SignTrainings" ToRole="Services" />
@@ -630,6 +669,14 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="TypeHorses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Horses" Relationship="CourseWorkModel.FK_Horses_TypeHorses" FromRole="TypeHorses" ToRole="Horses" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
@@ -643,6 +690,7 @@
           <Property Name="PositionId" Type="Int32" Nullable="false" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Gender" Relationship="CourseWorkModel.FK_Users_Gender" FromRole="Users" ToRole="Gender" />
           <NavigationProperty Name="LevelTrainingUsers" Relationship="CourseWorkModel.FK_LevelTrainingUsers_Users" FromRole="Users" ToRole="LevelTrainingUsers" />
           <NavigationProperty Name="Position" Relationship="CourseWorkModel.FK_Users_Position" FromRole="Users" ToRole="Position" />
@@ -730,6 +778,18 @@
             </Principal>
             <Dependent Role="Horses">
               <PropertyRef Name="PositionStableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Horses_TypeHorses">
+          <End Type="CourseWorkModel.TypeHorses" Role="TypeHorses" Multiplicity="0..1" />
+          <End Type="CourseWorkModel.Horses" Role="Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeHorses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="TypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -943,6 +1003,7 @@
           <EntitySetMapping Name="Services">
             <EntityTypeMapping TypeName="CourseWorkModel.Services">
               <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Discription" ColumnName="Discription" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -952,9 +1013,12 @@
           <EntitySetMapping Name="SignTrainings">
             <EntityTypeMapping TypeName="CourseWorkModel.SignTrainings">
               <MappingFragment StoreEntitySet="SignTrainings">
+                <ScalarProperty Name="viewed" ColumnName="viewed" />
+                <ScalarProperty Name="approved" ColumnName="approved" />
                 <ScalarProperty Name="HorseId" ColumnName="HorseId" />
                 <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
                 <ScalarProperty Name="LevelTrainingId" ColumnName="LevelTrainingId" />
+                <ScalarProperty Name="QuantityPeople" ColumnName="QuantityPeople" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="TimeTrainId" ColumnName="TimeTrainId" />
                 <ScalarProperty Name="DateTrain" ColumnName="DateTrain" />
@@ -974,9 +1038,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TypeHorses">
+            <EntityTypeMapping TypeName="CourseWorkModel.TypeHorses">
+              <MappingFragment StoreEntitySet="TypeHorses">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="CourseWorkModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="PositionId" ColumnName="PositionId" />

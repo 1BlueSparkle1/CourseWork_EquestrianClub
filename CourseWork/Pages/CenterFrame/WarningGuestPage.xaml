@@ -14,7 +14,7 @@
                 Записи в наш конный клуб доступны только авторизированным пользователям, пожалуйста, войдите или зарегистрируйтесь в системе для записи или позвоните по контактному телефону ниже:
             </TextBlock>
             <TextBlock HorizontalAlignment="Center" >
-                Контактный телефон: + 7 (999) 567 - 27- 45
+                Контактный телефон: + 7 (999) 567 - 27 - 45
             </TextBlock>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Padding="30 5" Background="#FF8D551C" 

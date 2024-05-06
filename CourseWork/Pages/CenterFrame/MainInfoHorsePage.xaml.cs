@@ -42,7 +42,7 @@ namespace CourseWork.Pages.CenterFrame
                     //выводим юсер контролы всех лошадей
                     if (horse != null)
                     {
-                        MainInfoWp.Children.Add(new HorseInfoUserControl(horse));
+                        MainInfoWp.Children.Add(new HorseInfoUserControl(horse, "info"));
                     }
                 }
             }

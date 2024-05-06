@@ -39,7 +39,8 @@
             <!--кнопка наград и соревнований-->
             <Button Margin="20 5" Background="{x:Null}" 
             BorderBrush="{x:Null}" Foreground="#FF8D551C"
-            x:Name="PrizeAndCompetiBtn" Click="PrizeAndCompetiBtn_Click">
+            x:Name="PrizeAndCompetiBtn" Click="PrizeAndCompetiBtn_Click"
+            Visibility="Collapsed">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>

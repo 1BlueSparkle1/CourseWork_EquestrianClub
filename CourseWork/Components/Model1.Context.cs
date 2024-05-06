@@ -38,6 +38,7 @@ namespace CourseWork.Components
         public virtual DbSet<Services> Services { get; set; }
         public virtual DbSet<SignTrainings> SignTrainings { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TypeHorses> TypeHorses { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

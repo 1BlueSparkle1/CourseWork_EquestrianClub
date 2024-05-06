@@ -26,7 +26,7 @@ namespace CourseWork.Components
         public int Id { get; set; }
         public string Moniker { get; set; }
         public Nullable<int> BreedId { get; set; }
-        public System.DateTime DateOfBirthday { get; set; }
+        public Nullable<System.DateTime> DateOfBirthday { get; set; }
         public Nullable<int> HorseGenderId { get; set; }
         public Nullable<int> TypeId { get; set; }
         public Nullable<int> MotherId { get; set; }
@@ -45,6 +45,7 @@ namespace CourseWork.Components
         public virtual ICollection<Horses> Horses11 { get; set; }
         public virtual Horses Horses3 { get; set; }
         public virtual PositionStable PositionStable { get; set; }
+        public virtual TypeHorses TypeHorses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LevelTrainingHorses> LevelTrainingHorses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

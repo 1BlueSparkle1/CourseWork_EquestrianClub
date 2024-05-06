@@ -28,18 +28,19 @@ namespace CourseWork.Components.UserControls
             FullNameTb.Text = $"ФИО: {trainer.FullName}";
             DateTime birth = (DateTime)trainer.DateOfBirthday;
             int age = DateTime.Now.Year - birth.Year;
-            if ( age.ToString().ElementAt(age.ToString().Count()-1) == 0 || age.ToString().ElementAt(age.ToString().Count() - 1) == 5 || 
-                age.ToString().ElementAt(age.ToString().Count() - 1) == 6 || age.ToString().ElementAt(age.ToString().Count() - 1) == 7 || 
-                age.ToString().ElementAt(age.ToString().Count() - 1) == 8 || age.ToString().ElementAt(age.ToString().Count() - 1) == 9 || 
+            if ( age.ToString().ToList().ElementAt(age.ToString().ToList().Count()-1) == 0 || age.ToString().ToList().ElementAt(age.ToString().ToList().Count() - 1) == 5 || 
+                age.ToString().ToList().ElementAt(age.ToString().ToList().Count() - 1) == 6 || age.ToString().ToList().ElementAt(age.ToString().ToList().Count() - 1) == 7 || 
+                age.ToString().ToList().ElementAt(age.ToString().ToList().Count() - 1) == 8 || age.ToString().ToList().ElementAt(age.ToString().ToList().Count() - 1) == 9 || 
                 age == 11 || age == 12 || age == 13 || age == 14)
             {
                 AgeTb.Text = $"Возраст: {age} лет";
             }
-            else if (age.ToString().ElementAt(age.ToString().Count() - 1) == 1)
+            else if (age.ToString().ToList().ElementAt(age.ToString().ToList().Count() - 1) == 1)
             {
                 AgeTb.Text = $"Возраст: {age} год";
             }
-            else if (age.ToString().ElementAt(age.ToString().Count() - 1) == 2 || age.ToString().ElementAt(age.ToString().Count() - 1) == 3 || age.ToString().ElementAt(age.ToString().Count() - 1) == 4)
+            else if (age.ToString().ToList().ElementAt(age.ToString().ToList().Count() - 1) == '2' || age.ToString().ToList().ElementAt(age.ToString().ToList().Count() - 1) == '3'
+                || age.ToString().ToList().ElementAt(age.ToString().ToList().Count() - 1) == '4')
             {
                 AgeTb.Text = $"Возраст: {age} года";
             }
@@ -58,7 +59,7 @@ namespace CourseWork.Components.UserControls
                 LevelTrainTb.Text = $"Уровни подготовки: {train.Remove(train.Length - 2)}.";
             }
 
-            Discription.Text = "";
+            
         }
     }
 }

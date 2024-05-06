@@ -12,7 +12,7 @@
         </Grid.Background>
         <StackPanel Margin="90,75,85,60">
             <StackPanel Orientation="Horizontal">
-                <Image Width="220" Height="180"></Image>
+                <Image Width="220" Height="180" Source="/Resources/Bell.png"></Image>
                 
                 <StackPanel>
                     <TextBlock FontSize="15" x:Name="FullNameTb" TextWrapping="Wrap" Width="320"></TextBlock>
@@ -23,7 +23,7 @@
 
             <ScrollViewer Height="130">
                 <TextBlock x:Name="Discription" TextWrapping="Wrap" Width="520">
-                    
+                    Описание
                 </TextBlock>
             </ScrollViewer>
         </StackPanel>

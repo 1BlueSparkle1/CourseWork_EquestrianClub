@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace CourseWork.Components.UserControls
     /// </summary>
     public partial class HorseInfoUserControl : UserControl
     {
-        public HorseInfoUserControl(Horses horses)
+        public HorseInfoUserControl(Horses horses, string state)
         {
             InitializeComponent();
 
@@ -31,7 +32,13 @@ namespace CourseWork.Components.UserControls
             MonikerTb.Text = "Кличка: " + horses.Moniker;
             GenderTb.Text = "Пол: " + horses.HorseGender.Title;
             BreedTb.Text = "Порода: " + horses.Breeds.Title;
-            DateOfBirthdayTb.Text = horses.DateOfBirthday.Date.ToString().Remove(horses.DateOfBirthday.Date.ToString().Length-8);
+            
+            if(horses.DateOfBirthday != null)
+            {
+                DateTime birth = (DateTime)horses.DateOfBirthday;
+                DateOfBirthdayTb.Text = birth.Date.ToString().Remove(birth.Date.ToString().Length - 8);
+            }
+            KategoriTb.Text = "Категория: " + horses.TypeHorses.Title;
             string train = "";
             foreach (var item in horses.LevelTrainingHorses.ToList())
             {
@@ -45,6 +52,32 @@ namespace CourseWork.Components.UserControls
             {
                 LevelTrainingTb.Text = $"Уровни подготовки: {train.Remove(train.Length - 2)}.";
             }
+
+            LogoHorseImg.Source = GetImageSource(horses.ImageSourseByte);
+        }
+
+        private BitmapImage GetImageSource(byte[] byteImage)
+        {
+
+            BitmapImage bitmapImage = new BitmapImage();
+            try
+            {
+                if (byteImage != null)
+                {
+                    MemoryStream byteStream = new MemoryStream(byteImage);
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = byteStream;
+                    bitmapImage.EndInit();
+                }
+                else
+                    bitmapImage = new BitmapImage(new Uri(@"\Resources\Bell.png", UriKind.Relative));
+
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
+            return bitmapImage;
         }
     }
 }

@@ -40,6 +40,8 @@ namespace CourseWork.Pages.CenterFrame
             TimeCb.ItemsSource = App.db.AvaliableTime.ToList();
             TimeCb.DisplayMemberPath = "Title";
 
+            DateDp.DisplayDateStart = DateTime.Now.AddDays(1);
+
             HorseCb.IsEnabled = false;
             TrainerCb.IsEnabled = false;
         }
@@ -113,7 +115,7 @@ namespace CourseWork.Pages.CenterFrame
 
                 servicePage.HorseCb.ItemsSource = App.db.Horses.Where(x => x.LevelTrainingHorses.Where(b => b.LevelTrainingId == 
                 servicePage.LevelTrainingCb.SelectedIndex + 1).Count() != 0 && x.SignTrainings.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex + 1 
-                && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0).ToList();
+                && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0 && x.TypeId == 1).ToList();
 
                 servicePage.HorseCb.DisplayMemberPath = "Moniker";
             }
@@ -138,6 +140,7 @@ namespace CourseWork.Pages.CenterFrame
                 sign.TimeTrainId = TimeCb.SelectedIndex+1;
                 sign.UserId = App.ThisUser.Id;
                 sign.LevelTrainingId = App.db.LevelTraining.Where(x => x.Title == LevelTrainingCb.Text).First().Id;
+                sign.QuantityPeople = 1;
                 if (string.IsNullOrEmpty(TrainerCb.Text) && string.IsNullOrEmpty(HorseCb.Text))
                 {
                     trainers = App.db.Users.Where(x => x.PositionId == 2 && x.LevelTrainingUsers.Where(a => a.LevelTrainingId ==
@@ -148,7 +151,7 @@ namespace CourseWork.Pages.CenterFrame
 
                     sign.HorseId = App.db.Horses.Where(x => x.LevelTrainingHorses.Where(b => b.LevelTrainingId ==
                     servicePage.LevelTrainingCb.SelectedIndex + 1).Count() != 0 && x.SignTrainings.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex + 1
-                    && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0).First().Id;
+                    && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0 && x.TypeId == 1).First().Id;
 
                     App.db.SignTrainings.Add(sign);
                     App.db.SaveChanges();
@@ -161,7 +164,7 @@ namespace CourseWork.Pages.CenterFrame
 
                     sign.HorseId = App.db.Horses.Where(x => x.LevelTrainingHorses.Where(b => b.LevelTrainingId ==
                     servicePage.LevelTrainingCb.SelectedIndex + 1).Count() != 0 && x.SignTrainings.Where(a => a.TimeTrainId == servicePage.TimeCb.SelectedIndex + 1
-                    && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0).First().Id;
+                    && a.DateTrain == servicePage.DateDp.SelectedDate).Count() == 0 && x.TypeId == 1).First().Id;
 
                     App.db.SignTrainings.Add(sign);
                     App.db.SaveChanges();

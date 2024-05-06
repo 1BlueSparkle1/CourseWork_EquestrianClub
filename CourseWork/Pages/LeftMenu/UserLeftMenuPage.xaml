@@ -70,7 +70,7 @@
                 <Button HorizontalContentAlignment="Left" x:Name="OtherBtn"
                 Background="#00000000" BorderBrush="#00000000"
                 Foreground="White" Padding="0" Click="OtherBtn_Click"
-                Margin="5 0">
+                Margin="5 0" Visibility="Collapsed">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>

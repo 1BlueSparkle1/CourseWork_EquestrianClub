@@ -19,9 +19,12 @@ namespace CourseWork.Components
         public Nullable<System.DateTime> DateTrain { get; set; }
         public Nullable<int> TimeTrainId { get; set; }
         public Nullable<int> UserId { get; set; }
+        public Nullable<int> QuantityPeople { get; set; }
         public Nullable<int> LevelTrainingId { get; set; }
         public Nullable<int> TrainerId { get; set; }
         public Nullable<int> HorseId { get; set; }
+        public Nullable<bool> approved { get; set; }
+        public Nullable<bool> viewed { get; set; }
     
         public virtual AvaliableTime AvaliableTime { get; set; }
         public virtual Horses Horses { get; set; }

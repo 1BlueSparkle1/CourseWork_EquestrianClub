@@ -1,4 +1,5 @@
 ﻿using CourseWork.Components;
+using CourseWork.Components.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,18 +15,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CourseWork.Pages.CenterFrame
+namespace CourseWork.Pages.CenterFrame.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для FotoRentPage.xaml
+    /// Логика взаимодействия для ListHorsesPage.xaml
     /// </summary>
-    public partial class FotoRentPage : Page
+    public partial class ListHorsesPage : Page
     {
-        private static Services services;
-        public FotoRentPage(Services _services)
+        public ListHorsesPage(string state)
         {
             InitializeComponent();
-            services = _services;
+            IEnumerable<Horses> horses = App.db.Horses.ToList();
+            foreach (Horses horse in horses)
+            {
+                ListHorseWp.Children.Add(new HorseInfoUserControl(horse, state));
+            }
         }
     }
 }

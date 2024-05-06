@@ -120,6 +120,9 @@
     <Compile Include="Components\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Components\TypeHorses.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Components\UserControls\HomeUserControl.xaml.cs">
       <DependentUpon>HomeUserControl.xaml</DependentUpon>
     </Compile>
@@ -134,6 +137,9 @@
     </Compile>
     <Compile Include="Components\Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CenterFrame\Admin\ListHorsesPage.xaml.cs">
+      <DependentUpon>ListHorsesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CenterFrame\EditPasswordPage.xaml.cs">
       <DependentUpon>EditPasswordPage.xaml</DependentUpon>
@@ -204,6 +210,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CenterFrame\Admin\ListHorsesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -354,6 +364,19 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Синица.jpg" />
+    <Resource Include="Resources\Тишина.jpg" />
+    <Resource Include="Resources\Цукат.jpg" />
+    <Resource Include="Resources\Ягодка.jpg" />
+    <Resource Include="Resources\Тихон.jpg" />
+    <Resource Include="Resources\Смирный.jpg" />
+    <Resource Include="Resources\Победа.jpg" />
+    <Resource Include="Resources\Грация.jpg" />
+    <Resource Include="Resources\Ириска.jpg" />
+    <Resource Include="Resources\Каштан.jpeg" />
+    <Resource Include="Resources\Метеор.jpg" />
+    <Resource Include="Resources\Азарт.jpg" />
+    <Resource Include="Resources\Ворчун.jpg" />
     <Resource Include="Components\UserControls\frameUser.png" />
     <Resource Include="Resources\frameUser.png" />
     <Resource Include="Resources\frame.png" />

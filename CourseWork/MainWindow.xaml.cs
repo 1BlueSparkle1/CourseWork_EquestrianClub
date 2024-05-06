@@ -2,6 +2,7 @@
 using CourseWork.Сomponents;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,14 @@ namespace CourseWork
             NotificationsBtn.Visibility = Visibility.Collapsed;
             //Открытие страницы авторизации
             AllWindowFrame.Navigate(new AuthorizationPage());
+            var path = @"C:\Users\LERA\Desktop\курсовая\";
+            foreach (var item in App.db.Horses.ToArray())
+            {
+                var fullPath = path + item.ImageSourse.Trim();
+                var imageByte = File.ReadAllBytes(fullPath);
+                item.ImageSourseByte = imageByte;
+            }
+            App.db.SaveChanges();
         }
     }
 }
